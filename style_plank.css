@@ -1,0 +1,29 @@
+
+body {
+    
+    font-family: 'Ubuntu', sans-serif;
+}
+
+i {
+    padding: 3px;
+}
+
+button {
+    margin: 3px;
+}
+
+#title {
+    background-color:rgba(42, 77, 54, 0.986);
+    font-family: 'Montserrat', sans-serif;
+}
+
+#title h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+#title > .container-fluid{
+    padding: 3% 15%;
+}

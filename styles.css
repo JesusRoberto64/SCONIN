@@ -150,7 +150,6 @@ hr{
 
 #welcome{
   padding: 0px;
-  position: sticky;
   top: 0px;
   z-index: -1;
 }
@@ -169,7 +168,7 @@ hr{
 
 #portfolio{
   padding: 30px 20px;
-  margin-top: 500px;
+ 
 }
 #portfolio h3{
   margin-bottom: 0;
@@ -301,6 +300,13 @@ footer img{
   width: 20px;
 }
 
+#triangles {
+  background-color:black;
+  background-image: url(assets/triangle.svg);
+  background-repeat: repeat-x;
+  background-size: 2.5rem;
+  height: 2rem;
+}
 
 /* small tablet styles */
 @media screen and (min-width: 620px){
@@ -417,9 +423,7 @@ footer img{
     grid-column: 1/5;
     align-self: center;
   }
-  #welcome{
-    padding-bottom: 20px;
-  }
+  
   /*
   .projects a:nth-child(1){
     grid-column: 1/4;
