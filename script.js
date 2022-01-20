@@ -103,9 +103,9 @@ window.onload = function(){
         
         const inst_particles = new THREE.Points( geometry, materials[ i ] );
        
-        //inst_particles.rotation.x = Math.random() * 7;
-		//inst_particles.rotation.y = Math.random() * 8;
-		//inst_particles.rotation.z = Math.random() * 6;
+        inst_particles.rotation.x = Math.random() * 7;
+		inst_particles.rotation.y = Math.random() * 8;
+		inst_particles.rotation.z = Math.random() * 6;
        //scene.add( inst_particles );
         
     }
@@ -154,60 +154,60 @@ sphereInter = new THREE.Mesh( new_geometry, new_material );
 sphereInter.visible = false;
 scene.add( sphereInter );
 
-
 const map = new THREE.TextureLoader().load('assets/logo_blanco.png');
 map.magFilter = THREE.NearestFilter;
 map.minFilter = THREE.NearestFilter;
 const spr_material = new THREE.SpriteMaterial( { map: map } );
 const sprite = new THREE.Sprite( spr_material );
-sprite.scale.x = 2;
+sprite.scale.x = 3;
 const sprite2 = sprite.clone()
 sprite2.position.y += 1.0   ;
+const sprites_arr =[sprite,sprite2]
+
 scene.add( sprite );
 scene.add(sprite2);
+
+// add movment direction Physics
+let mouse_Dir = new THREE.Vector2();
+let timer_Movement = new THREE.Clock();
+timer_Movement.autoStart = true;
+let timer_Movent_count = 0.0;
 
 window.addEventListener( 'resize', onWindowResize, false );
 onWindowResize();
 
-console.log(scene.children);
 ///// end of example
 let animate = function() {
     
-    const time = Date.now() * 0.00005;
+    timer_Movent_count += timer_Movement.getDelta();
+    //console.log(timer_Movent_count);
     
-    for ( let i = 0; i < scene.children.length; i ++ ) {
+    if ( timer_Movent_count >= 3.0){
+        timer_Movent_count = 0.0
+        //console.log("set timer")
+    }
 
-        const object = scene.children[ i ];
-           
-        if ( object instanceof THREE.Mesh ) {
-
-            
-            raycaster.setFromCamera( pointer, camera );
-    
-           let intersects = raycaster.intersectObject(object);
-            
-
-           if ( intersects.length > 0 ) {
-           
-                if ( INTERSECTED != intersects[ 0 ].object ) {
-                    
-                    object.rotation.y -= 0.01;
-                    console.log("--")
-                    //console.log(intersects[0].object.geometry)
-                    //console.log(scene.children[i].geometry.vertices)
-                    // console.log("touced");
+    if (window.scrollY <= 200){
+        raycaster.setFromCamera( pointer, camera );
+        let intersects = raycaster.intersectObjects(sprites_arr);
+            if ( intersects.length > 0 ){
+                
+                if ( INTERSECTED != intersects[ 0 ].object ){
+                    sphereInter.position.copy( intersects[0].point );
                     sphereInter.visible = true;
-					sphereInter.position.copy( intersects[ 0 ].point );
+                    //console.log(intersects[0].point.x, "ray x");
+                    //intersects[0].object.position.y += move_Particle();
+                    //intersects[0].object.position.x += move_Particle();
+                    //console.log(move_Particle(), "x");
+                    //console.log(move_Particle(),"Y");
                 }
-           }else if ( INTERSECTED !== null ) {
-       
-               INTERSECTED = null;
-               sphereInter.visible = false;
-           }
-           
-        }
-    }    
- 
+
+            }else if ( INTERSECTED !== null ){
+                INTERSECTED = null;
+                sphereInter.visible = false;
+            }
+
+    }
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
 };
@@ -222,24 +222,41 @@ animate();
 
 function updateCamera(ev) {
     
+    //console.log(window.scrollY);
+    /*
     if (camera.position.z - window.scrollY / 250.0 > -0.3){
         camera.position.y = 4.0 - window.scrollY / 250.0;
         camera.position.z = 2.0 - window.scrollY / 250.0;
     }
     camera.lookAt(0.0,0.0,0.0);
-    
+    */
 }
 
 function onPointerMove( event ) {
 
     pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
     pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    //console.log(window.scrollY,"scroll");
+    //console.log(pointer.y,"y")
 }
 
 function move_Particle(){
+    const range = 0.05;
+    let max = range;
+    let min = -range;
+    return Math.random()*-0.03;
+    
+    //return Math.random() * (max - min) + min;
+   
+}
 
+let mousemovemethod = function(e){
+    
+    
+    //console.log(e.pageX, "x cord");
+    //console.log("moved")
 }
 
 //window.addEventListener("scroll", updateCamera);
 document.addEventListener( 'pointermove', onPointerMove );
-
+document.addEventListener('mousemove', mousemovemethod);
