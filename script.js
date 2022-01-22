@@ -1,3 +1,4 @@
+PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST
 let app = new PIXI.Application({
     width: window.innerWidth, height: 600, autoResize: true ,backgroundColor: 0x000000, 
     resolution: window.devicePixelRatio || 1,  
@@ -69,48 +70,49 @@ window.onload = function(){
     canvas.appendChild(app.view);
 }
 
+//Sconin Sprite
+const sconin_Container = new PIXI.Container();
+app.stage.addChild(sconin_Container);
+sconin_Container.x = app.screen.width / 2;
+sconin_Container.y = app.screen.height / 2;
+sconin_Container.pivot.x = sconin_Container.width / 2; 
+sconin_Container.pivot.y = sconin_Container.height / 2; 
+
+const sconin_Text = new PIXI.Texture.from('assets/logo_blanco.png');
+const sconin_Spr = new PIXI.Sprite(sconin_Text);
+sconin_Spr.anchor.set(0.5,0.5);
+sconin_Spr.width = 350;
+sconin_Spr.height = 150;
+sconin_Container.addChild(sconin_Spr);
+
 //add Elements of app
-
-
 const container = new PIXI.Container();
 app.stage.addChild(container);
-
 container.x = app.screen.width / 2;
 container.y = app.screen.height / 2;
 
-// The green square we will knock about
-const greenSquare = new PIXI.Sprite(PIXI.Texture.WHITE);
-greenSquare.position.set((app.screen.width - 100) / 2, (app.screen.height - 100) / 2);
-greenSquare.width = 25;
-greenSquare.height = 25;
-greenSquare.tint = '0x00FF00';
-greenSquare.acceleration = new PIXI.Point(0);
-greenSquare.mass = 6;
-
 const redSquare = new PIXI.Sprite(PIXI.Texture.WHITE);
-redSquare.position.set(0,0);
-redSquare.width = 50;
-redSquare.height = 50;
+redSquare.position.set(-1,-1);
+redSquare.width = 80;
+redSquare.height = 80;
 redSquare.tint = '0x000000';
 redSquare.acceleration = new PIXI.Point(0);
 redSquare.mass = 0.8;
+redSquare.alpha = 0.0;
 app.stage.addChild(redSquare);
-//container.addChild(greenSquare);
-
-
 
 // Create a new texture and sprite
 const texture = PIXI.Texture.from('assets/hero/hero-spr-1.png');
 for (let i = 0; i < 50; i++) {
-    const bunny = new PIXI.Sprite(texture);
-    bunny.width = 80;
-    bunny.height = 80;
-    bunny.anchor.set(0.5);
-    bunny.x = (i % 5) * 40;
-    bunny.y = Math.floor(i / 5) * 40;
-    container.addChild(bunny);
-    bunny.acceleration = new PIXI.Point(0);
-    bunny.mass = 6;
+    const spr = new PIXI.Sprite(texture);
+    spr.width = 80;
+    spr.height = 80;
+    spr.anchor.set(0.5);
+    spr.x = (i % 5) * 80;
+    spr.y = Math.floor(i / 5) * 80;
+    container.addChild(spr);
+    spr.acceleration = new PIXI.Point(0);
+    spr.mass = 10;
 }
 
 // Center move pivots
@@ -131,8 +133,8 @@ app.ticker.add((delta) => {
     
     const mouseCoords = app.renderer.plugins.interaction.mouse.global;
     
-     // If the mouse is off screen, then don't update any further
-     if (app.screen.width > mouseCoords.x || mouseCoords.x > 0
+    // If the mouse is off screen, then don't update any further
+    if (app.screen.width > mouseCoords.x || mouseCoords.x > 0
         || app.screen.height > mouseCoords.y || mouseCoords.y > 0) {
         // Get the red square's center point
         const redSquareCenterPosition = new PIXI.Point(
@@ -172,7 +174,12 @@ app.ticker.add((delta) => {
         if (testForAABB(container.children[i], redSquare)){
             const collisionPush = collisionResponse(container.children[i], redSquare);
             // Set the changes in acceleration for both squares
-            
+            /*
+            redSquare.acceleration.set(
+                (collisionPush.x * container.children[i].mass),
+                (collisionPush.y * container.children[i].mass),
+            );
+            */    
             container.children[i].acceleration.set(
                 -(collisionPush.x * redSquare.mass),
                 -(collisionPush.y * redSquare.mass),
@@ -195,7 +202,9 @@ function onWindowResize() {
     // You can use the 'screen' property as the renderer visible
     // area, this is more useful than view.width/height because
     // it handles resolution
-    container.position.set(app.screen.width/2, app.screen.height/2); 
+    container.position.set(app.screen.width/2, app.screen.height/2);
+    sconin_Container.position.set(app.screen.width/2, app.screen.height/2);
+
 }
 
 window.addEventListener( 'resize', onWindowResize, false );
