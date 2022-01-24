@@ -94,7 +94,7 @@ hr{
   box-sizing: border-box;
 }
 .site-nav{
-  display: none;
+  /*display: none;*/
   background-color: var(--secondary);
   width: 100%; 
 }

@@ -1,11 +1,12 @@
-PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST
 let app = new PIXI.Application({
     width: window.innerWidth, height: 600, autoResize: true ,backgroundColor: 0x000000, 
     resolution: window.devicePixelRatio || 1,  
 });
+// Scale mode for all textures, will retain pixelation
+PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 // test Cilssions
 const movementSpeed = 0.5;
-const impulsePower = 2;
+const impulsePower = 0.5;
 
 // Test For Hit
 // A basic AABB check between two different squares
@@ -64,10 +65,14 @@ function distanceBetweenTwoPoints(p1, p2) {
 
     return Math.hypot(a, b);
 }
+document.body.appendChild(app.view)
 
 window.onload = function(){
     let canvas = document.getElementById("welcome");
     canvas.appendChild(app.view);
+
+    const navigation = document.getElementById("navigation");
+    navigation.style.display = "none";
 }
 
 //Sconin Sprite
@@ -75,8 +80,8 @@ const sconin_Container = new PIXI.Container();
 app.stage.addChild(sconin_Container);
 sconin_Container.x = app.screen.width / 2;
 sconin_Container.y = app.screen.height / 2;
-sconin_Container.pivot.x = sconin_Container.width / 2; 
-sconin_Container.pivot.y = sconin_Container.height / 2; 
+//sconin_Container.pivot.x = sconin_Container.width / 2; 
+//sconin_Container.pivot.y = sconin_Container.height / 2; 
 
 const sconin_Text = new PIXI.Texture.from('assets/logo_blanco.png');
 const sconin_Spr = new PIXI.Sprite(sconin_Text);
@@ -88,28 +93,29 @@ sconin_Container.addChild(sconin_Spr);
 //add Elements of app
 const container = new PIXI.Container();
 app.stage.addChild(container);
-container.x = app.screen.width / 2;
-container.y = app.screen.height / 2;
+container.x = (app.screen.width / 2) + 40;
+container.y = (app.screen.height / 2) + 50;
 
-const redSquare = new PIXI.Sprite(PIXI.Texture.WHITE);
-redSquare.position.set(-1,-1);
-redSquare.width = 80;
-redSquare.height = 80;
-redSquare.tint = '0x000000';
-redSquare.acceleration = new PIXI.Point(0);
-redSquare.mass = 0.8;
-redSquare.alpha = 0.0;
-app.stage.addChild(redSquare);
+
+const BlackSquare = new PIXI.Sprite(PIXI.Texture.WHITE);
+BlackSquare.position.set(-1000,-1000);
+BlackSquare.width = 80;
+BlackSquare.height = 80;
+BlackSquare.tint = '0x000000';
+BlackSquare.acceleration = new PIXI.Point(0);
+BlackSquare.mass = 0.8;
+BlackSquare.alpha = 0.0;
+app.stage.addChild(BlackSquare);
 
 // Create a new texture and sprite
 const texture = PIXI.Texture.from('assets/hero/hero-spr-1.png');
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 36; i++) {
     const spr = new PIXI.Sprite(texture);
     spr.width = 80;
     spr.height = 80;
     spr.anchor.set(0.5);
-    spr.x = (i % 5) * 80;
-    spr.y = Math.floor(i / 5) * 80;
+    spr.x = (i % 6) * 80;
+    spr.y = Math.floor(i / 6) * 80;
     container.addChild(spr);
     spr.acceleration = new PIXI.Point(0);
     spr.mass = 10;
@@ -121,25 +127,21 @@ container.pivot.y = container.height / 2;
 
 // Listen for animate update
 app.ticker.add((delta) => {
-    //container.rotation -= 0.01 * delta;
-    redSquare.acceleration.set(redSquare.acceleration.x * 0.99, 
-    redSquare.acceleration.y * 0.99);
-       
-    for(let i = 0; i < container.children.length; i++){
-        let child =  container.children[i];
-        child.acceleration.set(child.acceleration.x * 0.99, 
-        child.acceleration.y * 0.99);
-    }
+    //container.rotation -= 0.001 * delta;
+    BlackSquare.acceleration.set(BlackSquare.acceleration.x * 0.99, 
+    BlackSquare.acceleration.y * 0.99);
     
     const mouseCoords = app.renderer.plugins.interaction.mouse.global;
     
     // If the mouse is off screen, then don't update any further
     if (app.screen.width > mouseCoords.x || mouseCoords.x > 0
         || app.screen.height > mouseCoords.y || mouseCoords.y > 0) {
+        
+        
         // Get the red square's center point
         const redSquareCenterPosition = new PIXI.Point(
-            redSquare.x + (redSquare.width * 0.5),
-            redSquare.y + (redSquare.height * 0.5),
+            BlackSquare.x + (BlackSquare.width * 0.5),
+            BlackSquare.y + (BlackSquare.height * 0.5),
         );
 
         // Calculate the direction vector between the mouse pointer and
@@ -164,15 +166,20 @@ app.ticker.add((delta) => {
         const redSpeed = distMouseRedSquare * movementSpeed;
 
         // Calculate the acceleration of the red square
-        redSquare.acceleration.set(
+        BlackSquare.acceleration.set(
             Math.cos(angleToMouse) * redSpeed,
             Math.sin(angleToMouse) * redSpeed,
         );
     }
         
     for(let i = 0; i < container.children.length; i++){
-        if (testForAABB(container.children[i], redSquare)){
-            const collisionPush = collisionResponse(container.children[i], redSquare);
+        let child =  container.children[i];
+        child.rotation -= 0.003 * delta;
+        child.acceleration.set(child.acceleration.x * 0.99, 
+        child.acceleration.y * 0.99);
+
+        if (testForAABB(container.children[i], BlackSquare)){
+            const collisionPush = collisionResponse(container.children[i], BlackSquare);
             // Set the changes in acceleration for both squares
             /*
             redSquare.acceleration.set(
@@ -181,8 +188,8 @@ app.ticker.add((delta) => {
             );
             */    
             container.children[i].acceleration.set(
-                -(collisionPush.x * redSquare.mass),
-                -(collisionPush.y * redSquare.mass),
+                -(collisionPush.x * BlackSquare.mass),
+                -(collisionPush.y * BlackSquare.mass),
             );
         }
 
@@ -190,8 +197,8 @@ app.ticker.add((delta) => {
         container.children[i].y += container.children[i].acceleration.y * delta;
     }   
     
-    redSquare.x += redSquare.acceleration.x * delta;
-    redSquare.y += redSquare.acceleration.y * delta;
+    BlackSquare.x += BlackSquare.acceleration.x * delta;
+    BlackSquare.y += BlackSquare.acceleration.y * delta;
 });
 
 //HTML FUCTIONS and connected
@@ -199,9 +206,6 @@ function onWindowResize() {
 	const parent = app.view.parentNode;
 	// Resize the renderer
 	app.renderer.resize(parent.clientWidth, 600);
-    // You can use the 'screen' property as the renderer visible
-    // area, this is more useful than view.width/height because
-    // it handles resolution
     container.position.set(app.screen.width/2, app.screen.height/2);
     sconin_Container.position.set(app.screen.width/2, app.screen.height/2);
 
