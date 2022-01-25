@@ -1,12 +1,16 @@
 let app = new PIXI.Application({
     width: window.innerWidth, height: 600, autoResize: true ,backgroundColor: 0x000000, 
-    resolution: window.devicePixelRatio || 1,  
 });
+
+// Disable interaction plugin (for PixiJS 6)
+// eslint-disable-next-line no-underscore-dangle
+//delete PIXI.Renderer.__plugins.interaction;
+
 // Scale mode for all textures, will retain pixelation
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 // test Cilssions
 const movementSpeed = 0.5;
-const impulsePower = 0.5;
+const impulsePower = 1.0;
 
 // Test For Hit
 // A basic AABB check between two different squares
@@ -65,7 +69,14 @@ function distanceBetweenTwoPoints(p1, p2) {
 
     return Math.hypot(a, b);
 }
+
 document.body.appendChild(app.view)
+
+// Make stage interactive so you can click on it too
+
+app.stage.interactive = true;
+app.stage.hitArea = app.renderer.screen;
+app.stage.on('pointerdown', onDragStart);
 
 window.onload = function(){
     let canvas = document.getElementById("welcome");
@@ -80,8 +91,6 @@ const sconin_Container = new PIXI.Container();
 app.stage.addChild(sconin_Container);
 sconin_Container.x = app.screen.width / 2;
 sconin_Container.y = app.screen.height / 2;
-//sconin_Container.pivot.x = sconin_Container.width / 2; 
-//sconin_Container.pivot.y = sconin_Container.height / 2; 
 
 const sconin_Text = new PIXI.Texture.from('assets/logo_blanco.png');
 const sconin_Spr = new PIXI.Sprite(sconin_Text);
@@ -104,7 +113,7 @@ BlackSquare.height = 80;
 BlackSquare.tint = '0x000000';
 BlackSquare.acceleration = new PIXI.Point(0);
 BlackSquare.mass = 0.8;
-BlackSquare.alpha = 0.0;
+//BlackSquare.alpha = 0.0;
 app.stage.addChild(BlackSquare);
 
 // Create a new texture and sprite
@@ -139,16 +148,21 @@ app.ticker.add((delta) => {
         
         
         // Get the red square's center point
-        const redSquareCenterPosition = new PIXI.Point(
+        const BlckSquareCenterPosition = new PIXI.Point(
             BlackSquare.x + (BlackSquare.width * 0.5),
             BlackSquare.y + (BlackSquare.height * 0.5),
         );
+         
+        // Touch fuction 
+       // if (onDragStart()){
+           // console.log("second clcked");
+       // }
 
         // Calculate the direction vector between the mouse pointer and
         // the red square
         const toMouseDirection = new PIXI.Point(
-            mouseCoords.x - redSquareCenterPosition.x,
-            mouseCoords.y - redSquareCenterPosition.y,
+            mouseCoords.x - BlckSquareCenterPosition.x,
+            mouseCoords.y - BlckSquareCenterPosition.y,
         );
 
         // Use the above to figure out the angle that direction has
@@ -161,7 +175,7 @@ app.ticker.add((delta) => {
         // function of how far away from the mouse pointer the red square is
         const distMouseRedSquare = distanceBetweenTwoPoints(
             mouseCoords,
-            redSquareCenterPosition,
+            BlckSquareCenterPosition,
         );
         const redSpeed = distMouseRedSquare * movementSpeed;
 
@@ -208,7 +222,16 @@ function onWindowResize() {
 	app.renderer.resize(parent.clientWidth, 600);
     container.position.set(app.screen.width/2, app.screen.height/2);
     sconin_Container.position.set(app.screen.width/2, app.screen.height/2);
+    console.log("rezixed");
+}
 
+
+function onDragStart(event) {
+    // store a reference to the data
+    // the reason for this is because of multitouch
+    // we want to track the movement of this particular touch
+    //console.log(event.data);
+    console.log("clicked");
 }
 
 window.addEventListener( 'resize', onWindowResize, false );
