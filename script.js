@@ -1,5 +1,5 @@
 let app = new PIXI.Application({
-    width: window.innerWidth, height: 600, autoResize: true ,backgroundColor: 0x000000, 
+    width: window.innerWidth, height: 400, autoResize: true ,backgroundColor: 0x000000, 
 });
 
 // Disable interaction plugin (for PixiJS 6)
@@ -9,8 +9,8 @@ let app = new PIXI.Application({
 // Scale mode for all textures, will retain pixelation
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 // test Cilssions
-const movementSpeed = 0.5;
-const impulsePower = 1.0;
+const movementSpeed = 0.1;
+const impulsePower = 2.0;
 
 // Test For Hit
 // A basic AABB check between two different squares
@@ -72,11 +72,13 @@ function distanceBetweenTwoPoints(p1, p2) {
 
 document.body.appendChild(app.view)
 
-// Make stage interactive so you can click on it too
-
+// Make stage interactive so you can click on screen
 app.stage.interactive = true;
 app.stage.hitArea = app.renderer.screen;
-app.stage.on('pointerdown', onDragStart);
+//app.stage.on('pointerdown', onDragStart);
+app.stage.on('pointermove', onDragMove);
+let is_Touched = false;
+let Touche_pos = {x:0,y:0}
 
 window.onload = function(){
     let canvas = document.getElementById("welcome");
@@ -105,12 +107,11 @@ app.stage.addChild(container);
 container.x = (app.screen.width / 2) + 40;
 container.y = (app.screen.height / 2) + 50;
 
-
 const BlackSquare = new PIXI.Sprite(PIXI.Texture.WHITE);
 BlackSquare.position.set(-1000,-1000);
 BlackSquare.width = 80;
 BlackSquare.height = 80;
-BlackSquare.tint = '0x000000';
+BlackSquare.tint = '0xff0000';
 BlackSquare.acceleration = new PIXI.Point(0);
 BlackSquare.mass = 0.8;
 //BlackSquare.alpha = 0.0;
@@ -127,13 +128,13 @@ for (let i = 0; i < 36; i++) {
     spr.y = Math.floor(i / 6) * 80;
     container.addChild(spr);
     spr.acceleration = new PIXI.Point(0);
-    spr.mass = 10;
+    spr.mass = 4;
 }
 
 // Center move pivots
 container.pivot.x = container.width / 2;
 container.pivot.y = container.height / 2;
-
+let debug = 0;
 // Listen for animate update
 app.ticker.add((delta) => {
     //container.rotation -= 0.001 * delta;
@@ -142,51 +143,96 @@ app.ticker.add((delta) => {
     
     const mouseCoords = app.renderer.plugins.interaction.mouse.global;
     
+    const BlckSquareCenterPosition = new PIXI.Point(
+        BlackSquare.x + (BlackSquare.width * 0.5),
+        BlackSquare.y + (BlackSquare.height * 0.5),
+    );
+
+    if (is_Touched){
+            
+            
+            //console.log(mouseCoords,"mouse");
+            //console.log(Touche_pos,"touched")
+            //console.log("u");
+            
+            const toToucheDirection  = new PIXI.Point(
+                Touche_pos.x - BlckSquareCenterPosition.x,
+                Touche_pos.y - BlckSquareCenterPosition.y,
+            );
+            
+            const angleTouche = Math.atan2(
+                toToucheDirection.x,
+                toToucheDirection.y,
+            );
+
+            const distTocuheBlackSquare = distanceBetweenTwoPoints(
+                Touche_pos,BlckSquareCenterPosition,
+            );
+            //console.log(distTocuheBlackSquare);
+            const blackSpeed = distTocuheBlackSquare * movementSpeed;
+
+            BlackSquare.acceleration.set(
+                Math.cos(angleTouche) *blackSpeed,
+                Math.sin(angleTouche) *blackSpeed,
+            );
+            
+            //app.renderer.backgroundColor = 0xff0000
+            
+            BlackSquare.position.x = Touche_pos.x - 40;
+            BlackSquare.position.y = Touche_pos.y - 40;
+
+            //BlackSquare.x += BlackSquare.acceleration.x * delta;
+            //BlackSquare.y += BlackSquare.acceleration.y * delta;
+
+   }else{
+        //app.renderer.backgroundColor = 0x000000
+   }
+   
+   /*
     // If the mouse is off screen, then don't update any further
-    if (app.screen.width > mouseCoords.x || mouseCoords.x > 0
-        || app.screen.height > mouseCoords.y || mouseCoords.y > 0) {
-        
-        
+    if ( app.screen.height > mouseCoords.y ) {
+       
+        //debug += 1;
+        //console.log(debug)
         // Get the red square's center point
+        /*
         const BlckSquareCenterPosition = new PIXI.Point(
             BlackSquare.x + (BlackSquare.width * 0.5),
             BlackSquare.y + (BlackSquare.height * 0.5),
         );
-         
-        // Touch fuction 
-       // if (onDragStart()){
-           // console.log("second clcked");
-       // }
+        */      
+            /*
+            // Calculate the direction vector between the mouse pointer and
+            // the red square
+            const toMouseDirection = new PIXI.Point(
+                mouseCoords.x - BlckSquareCenterPosition.x,
+                mouseCoords.y - BlckSquareCenterPosition.y,
+            );
 
-        // Calculate the direction vector between the mouse pointer and
-        // the red square
-        const toMouseDirection = new PIXI.Point(
-            mouseCoords.x - BlckSquareCenterPosition.x,
-            mouseCoords.y - BlckSquareCenterPosition.y,
-        );
+            // Use the above to figure out the angle that direction has
+            const angleToMouse = Math.atan2(
+                toMouseDirection.y,
+                toMouseDirection.x,
+            );
 
-        // Use the above to figure out the angle that direction has
-        const angleToMouse = Math.atan2(
-            toMouseDirection.y,
-            toMouseDirection.x,
-        );
+            // Figure out the speed the square should be travelling by, as a
+            // function of how far away from the mouse pointer the red square is
+            const distMouseRedSquare = distanceBetweenTwoPoints(
+                mouseCoords,
+                BlckSquareCenterPosition,
+            );
+            const redSpeed = distMouseRedSquare * movementSpeed;
 
-        // Figure out the speed the square should be travelling by, as a
-        // function of how far away from the mouse pointer the red square is
-        const distMouseRedSquare = distanceBetweenTwoPoints(
-            mouseCoords,
-            BlckSquareCenterPosition,
-        );
-        const redSpeed = distMouseRedSquare * movementSpeed;
-
-        // Calculate the acceleration of the red square
-        BlackSquare.acceleration.set(
-            Math.cos(angleToMouse) * redSpeed,
-            Math.sin(angleToMouse) * redSpeed,
-        );
-    }
+            // Calculate the acceleration of the red square
+            BlackSquare.acceleration.set(
+                Math.cos(angleToMouse) * redSpeed,
+                Math.sin(angleToMouse) * redSpeed,
+            );
+            */
         
-    for(let i = 0; i < container.children.length; i++){
+    //}
+        
+    for(let i = 0; i < container.children.length; i++){ //container.children.length
         let child =  container.children[i];
         child.rotation -= 0.003 * delta;
         child.acceleration.set(child.acceleration.x * 0.99, 
@@ -196,7 +242,7 @@ app.ticker.add((delta) => {
             const collisionPush = collisionResponse(container.children[i], BlackSquare);
             // Set the changes in acceleration for both squares
             /*
-            redSquare.acceleration.set(
+            BlackSquare.acceleration.set(
                 (collisionPush.x * container.children[i].mass),
                 (collisionPush.y * container.children[i].mass),
             );
@@ -205,14 +251,20 @@ app.ticker.add((delta) => {
                 -(collisionPush.x * BlackSquare.mass),
                 -(collisionPush.y * BlackSquare.mass),
             );
+            
+            container.children[i].rotation -= 0.03 * delta;
+
         }
 
-        container.children[i].x += container.children[i].acceleration.x * delta;
-        container.children[i].y += container.children[i].acceleration.y * delta;
+        container.children[i].x -= container.children[i].acceleration.x * delta;
+        container.children[i].y -= container.children[i].acceleration.y * delta;
     }   
     
-    BlackSquare.x += BlackSquare.acceleration.x * delta;
-    BlackSquare.y += BlackSquare.acceleration.y * delta;
+   //BlackSquare.x += BlackSquare.acceleration.x * delta;
+   //BlackSquare.y += BlackSquare.acceleration.y * delta;
+    
+    
+    is_Touched = false;
 });
 
 //HTML FUCTIONS and connected
@@ -222,16 +274,26 @@ function onWindowResize() {
 	app.renderer.resize(parent.clientWidth, 600);
     container.position.set(app.screen.width/2, app.screen.height/2);
     sconin_Container.position.set(app.screen.width/2, app.screen.height/2);
-    console.log("rezixed");
+    //console.log("rezixed");
 }
 
-
+/*
 function onDragStart(event) {
     // store a reference to the data
     // the reason for this is because of multitouch
     // we want to track the movement of this particular touch
-    //console.log(event.data);
-    console.log("clicked");
+   
+    //console.log("clicked");
+    is_Touched = true;
+}
+*/
+function onDragMove(event) {
+   
+    is_Touched = true;
+    Touche_pos = event.data.global;
+    //console.log(event.data.global);
+    //console.log("moved");
+    
 }
 
 window.addEventListener( 'resize', onWindowResize, false );
