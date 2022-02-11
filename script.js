@@ -1,6 +1,54 @@
+
 let app = new PIXI.Application({
     width: window.innerWidth, height: 400, autoResize: true ,backgroundColor: 0x000000, 
 });
+
+//Move parts with mouse
+//const m = new Mouse(app);
+
+//Intregation od the p2 ====================================================
+//add box 
+
+let world = new p2.World();
+
+ // Pre-fill object pools. Completely optional but good for performance!
+ world.overlapKeeper.recordPool.resize(16);
+ world.narrowphase.contactEquationPool.resize(1024);
+ world.narrowphase.frictionEquationPool.resize(1024);
+// Set stiffness of all contacts and constraints
+ world.setGlobalStiffness(1e8);
+// Max number of solver iterations to do
+world.solver.iterations = 20;
+
+// Solver error tolerance
+world.solver.tolerance = 0.02;
+
+// Enables sleeping of bodies
+world.sleepMode = p2.World.BODY_SLEEPING;
+
+let boxShape = new p2.Box({ width: 1, height: 1 });
+let boxBody = new p2.Body({mass:1, position:[0,3], angularVelocity:1 });
+
+boxBody.addShape(boxShape);
+world.addBody(boxBody);
+
+// Initiate p2 body for sprite
+let circle_Shape = new p2.Circle({radius: 0.5 })
+var circle_Body = new p2.Body({mass: 1, position: [1, 3],});
+
+circle_Body.addShape(circle_Shape);
+world.addBody(circle_Body);
+
+// Add a plane
+planeShape = new p2.Plane();
+planeBody = new p2.Body({ position:[0,-1] });
+planeBody.addShape(planeShape);
+world.addBody(planeBody);
+
+// Pixi.js zoom level
+zoom = 100;
+
+// ======================================================================
 
 // Scale mode for all textures, will retain pixelation
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
@@ -8,6 +56,7 @@ PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 const movementSpeed = 0.08;
 const impulsePower = 2.0;
 
+// LEGACY COLLITIONS IMPLENTATION of pixi JS===================================================
 // Test For Hit
 // A basic AABB check between two different squares
 function testForAABB(object1, object2) {
@@ -81,6 +130,8 @@ window.onload = function(){
 
     const navigation = document.getElementById("navigation");
     navigation.style.display = "none";
+    
+    //document.body.appendChild(app.view)
 }
 
 //Sconin Sprite
@@ -96,7 +147,36 @@ sconin_Spr.width = 350;
 sconin_Spr.height = 150;
 sconin_Container.addChild(sconin_Spr);
 
-//add Elements of app
+
+// CONTAINER FOR p2 INTEGRATION ==================================
+
+let container_p2 = new PIXI.Container();
+app.stage.addChild(container_p2);
+container_p2.x = app.screen.width / 2;
+container_p2.y = app.screen.height / 2;
+container_p2.scale.x = zoom;
+container_p2.scale.y = -zoom;
+
+let graphics = new PIXI.Graphics();
+graphics.beginFill(0xff0000);
+graphics.drawRect(-boxShape.width/2, -boxShape.height/2, boxShape.width, boxShape.height);
+
+//container_p2.addChild(graphics);
+
+// put test for sprite 
+const texture_P2 = PIXI.Texture.from('assets/hero/hero-spr-3.png');
+let sprite_P2 = new PIXI.Sprite(texture_P2);
+sprite_P2.width = 1;
+sprite_P2.height = 1;
+sprite_P2.scale.y = -zoom;
+sprite_P2.scale.x = zoom;
+sprite_P2.anchor.set(0.5,0.5);
+
+container_p2.addChild(graphics, sprite_P2);
+
+// ===============================================================
+
+// ADD SRPITES CONTENER add Elements of app
 const container = new PIXI.Container();
 app.stage.addChild(container);
 container.x = (app.screen.width / 2) + 40;
@@ -111,7 +191,7 @@ BlackSquare.acceleration = new PIXI.Point(0);
 BlackSquare.mass = 0.8;
 BlackSquare.alpha = 0.0;
 app.stage.addChild(BlackSquare);
-
+/*
 // Create a new texture and sprite
 const texture = PIXI.Texture.from('assets/hero/hero-spr-1.png');
 for (let i = 0; i < 360; i++) {
@@ -125,7 +205,7 @@ for (let i = 0; i < 360; i++) {
     spr.acceleration = new PIXI.Point(0);
     spr.mass = 4;
 }
-
+*/
 // Center move pivots
 container.pivot.x = container.width / 2;
 container.pivot.y = container.height / 2;
@@ -133,6 +213,23 @@ let debug = 0;
 // Listen for animate update
 
 app.ticker.add((delta) => {
+    
+    // p2 physics integration==========================================
+    
+        world.step(1/60);
+
+        // Transfer positions of the physics objects to Pixi.js
+        graphics.position.x = boxBody.position[0];
+        graphics.position.y = boxBody.position[1];
+        graphics.rotation =   boxBody.angle;
+
+        // new sprite position 
+        sprite_P2.position.x = circle_Body.position[0];
+        sprite_P2.position.y = circle_Body.position[1];
+        sprite_P2.rotation = circle_Body.angle;
+
+    //==================================================================
+
     BlackSquare.acceleration.set(BlackSquare.acceleration.x * 0.99, 
     BlackSquare.acceleration.y * 0.99);
     
@@ -211,7 +308,7 @@ app.ticker.add((delta) => {
 function onWindowResize() {
 	const parent = app.view.parentNode;
 	// Resize the renderer
-	app.renderer.resize(parent.clientWidth, 600);
+	app.renderer.resize(parent.clientWidth, 400);
     container.position.set(app.screen.width/2, app.screen.height/2);
     sconin_Container.position.set(app.screen.width/2, app.screen.height/2);
 }
