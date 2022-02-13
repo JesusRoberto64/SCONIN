@@ -20,8 +20,8 @@ class Mouse {
       endDrag();
       var pixiPoint = app.stage.toLocal(event.data.global);
       var physicsPoint = p2.vec2.create();
-      physicsPoint[0] = -pixiPoint.x * PIXEL_TO_METER;
-      physicsPoint[1] = -pixiPoint.y * PIXEL_TO_METER;
+      physicsPoint[0] = -pixiPoint.x; //* PIXEL_TO_METER;
+      physicsPoint[1] = -pixiPoint.y; //* PIXEL_TO_METER;
       var result = world.hitTest(physicsPoint, world.bodies, pickPrecision);
       // Remove static bodies
       var b;
@@ -56,8 +56,8 @@ class Mouse {
 
       var pixiPoint = app.stage.toLocal(event.data.global);
       var physicsPoint = p2.vec2.create();
-      physicsPoint[0] = -pixiPoint.x * PIXEL_TO_METER;
-      physicsPoint[1] = -pixiPoint.y * PIXEL_TO_METER;
+      physicsPoint[0] = -pixiPoint.x; //* PIXEL_TO_METER;
+      physicsPoint[1] = -pixiPoint.y; //* PIXEL_TO_METER;
 
       p2.vec2.copy(mouseConstraint.pivotA, physicsPoint);
       mouseConstraint.bodyA.wakeUp();
