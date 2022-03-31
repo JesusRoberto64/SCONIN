@@ -27,7 +27,7 @@ let boxShape = new p2.Box({ width: 1, height: 1 });
 let boxBody = new p2.Body({mass:2.5, position:[0,3]});
 
 boxBody.addShape(boxShape);
-//world.addBody(boxBody);
+world.addBody(boxBody);
 
 // Initiate p2 body for sprite
 let circle_Shape = new p2.Circle({radius: 1 })
@@ -81,7 +81,7 @@ window.onload = function(){
     canvas.appendChild(app.view);
 
     const navigation = document.getElementById("navigation");
-    navigation.style.display = "none";
+    //navigation.style.display = "none";
     
     //document.body.appendChild(app.view)
 }
