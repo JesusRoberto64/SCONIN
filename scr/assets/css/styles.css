@@ -88,6 +88,27 @@ hr{
     background-position: -16px ;
 }
 
+/*Medium Cards*/
+#cards{
+    background-color: #b069db;
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+.card{
+    border-radius: 15px;
+    border-width: 3px;
+    background-color: aquamarine;
+    /*min-height: 640px;*/
+    /*max-width: 320px;*/
+    text-align: center;
+    margin: 0 auto 2rem auto;
+    overflow: hidden;
+}
+
+.card img{
+    height: 100%;
+}
+
 /* Medio(video juego comic) cambio */
 .medio{
     margin-top: 5rem;
@@ -216,9 +237,15 @@ footer img{
     background-position: -16px ;
 }
 
-/*Dinamic change*/
+/*Dinamic change above a tablet*/
 
 @media (min-width: 768px) {
+    #cards{
+        background-color: aqua;
+        display: flex;
+        justify-content: center;
+    }
+
     .medio p {
         font-size: 1.1rem;
         text-align: center;

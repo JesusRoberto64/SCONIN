@@ -1,6 +1,56 @@
 import { createViewport, onWindowResize, animate } from "./js/viewport";
 import { loadHTML } from "./js/loader";
 
+//card new design
+
+const initiCards = ()=>{
+    console.log("init card enters");
+    const cardDiv = document.getElementById("cards");
+
+    const cardsDb = [
+        {
+            title: "Eliab y el Círculo del Juego",
+            medium: "WEBTOON - WEB COMIC",
+            img: "./assets/proyect_G&W.png"
+        },
+        {
+            title: "Jairo: El Pirata Callejero",
+            medium: "MINI COMIC IMPRESO",
+            img: "./assets/proyect_plank.png"
+        },
+        {
+            title: "PROTECTOR",
+            medium: "JUEGO LCD DE ACCIÓN",
+            img: "./assets/proyect_helix.png"
+        }
+    ] 
+
+    cardsDb.forEach((card)=>{
+        let div = document.createElement("div");
+        
+        div.className = "card";
+        let img = document.createElement("img");
+        img.src = card.img;
+
+        div.appendChild(img);
+        
+        let p = document.createElement("p");
+        p.innerText = card.medium;
+        div.appendChild(p);
+
+        let h3 = document.createElement("h3"); 
+        h3.innerText = card.title;
+        div.appendChild(h3);
+
+        cardDiv.appendChild(div);
+    })
+
+
+}
+
+initiCards();
+
+
 //Carrusel load
 initializeCarousel();
 
@@ -82,6 +132,8 @@ async function loadConfigureCarousel(htmlPath, elementId, carouselSelector, opti
     await loadHTML(htmlPath, elementId);
     const carouselElement  = document.querySelector(carouselSelector);
     new bootstrap.Carousel(carouselElement, options);
+
+
 }
 
 async function initializeCarousel() {
