@@ -4,7 +4,6 @@ import { loadHTML } from "./js/loader";
 //card new design
 
 const initiCards = ()=>{
-    console.log("init card enters");
     const cardDiv = document.getElementById("cards");
 
     const cardsDb = [
@@ -23,26 +22,31 @@ const initiCards = ()=>{
             medium: "JUEGO LCD DE ACCIÓN",
             img: "./assets/proyect_helix.png"
         }
-    ] 
+    ]; 
 
     cardsDb.forEach((card)=>{
-        let div = document.createElement("div");
+        let a = document.createElement("a");
+        a.className = "card";
         
-        div.className = "card";
+        let overlay = document.createElement("div");
+        overlay.className = "overlay";
+        overlay.innerText = card.title;
+        a.appendChild(overlay);
+       
         let img = document.createElement("img");
         img.src = card.img;
 
-        div.appendChild(img);
+        a.appendChild(img);
         
         let p = document.createElement("p");
         p.innerText = card.medium;
-        div.appendChild(p);
+        a.appendChild(p);
 
         let h3 = document.createElement("h3"); 
         h3.innerText = card.title;
-        div.appendChild(h3);
+        a.appendChild(h3);
 
-        cardDiv.appendChild(div);
+        cardDiv.appendChild(a);
     })
 
 
