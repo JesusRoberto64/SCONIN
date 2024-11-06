@@ -10,23 +10,28 @@ const initiCards = ()=>{
         {
             title: "Eliab y el Círculo del Juego",
             medium: "WEBTOON - WEB COMIC",
-            img: "./assets/proyect_G&W.png"
+            img: "./assets/proyect_G&W.png",
+            url: "https://www.webtoons.com/es/canvas/el-microbusero-2/la-revelaci%C3%B3n/viewer?title_no=742802&episode_no=1"
         },
         {
             title: "Jairo: El Pirata Callejero",
             medium: "MINI COMIC IMPRESO",
-            img: "./assets/proyect_plank.png"
+            img: "./assets/proyect_plank.png",
+            url: "https://www.google.com/"
         },
         {
             title: "PROTECTOR",
             medium: "JUEGO LCD DE ACCIÓN",
-            img: "./assets/proyect_helix.png"
+            img: "./assets/proyect_helix.png",
+            url: "https://sconin.itch.io/protector"
         }
     ]; 
 
     cardsDb.forEach((card)=>{
         let a = document.createElement("a");
         a.className = "card";
+        a.href = card.url;
+        a.target = "_blank";
         
         let overlay = document.createElement("div");
         overlay.className = "overlay";

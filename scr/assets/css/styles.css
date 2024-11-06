@@ -90,13 +90,22 @@ hr{
 
 /*Medium Cards*/
 
+.mediumCard{
+    margin-top: 4rem;
+    text-align: center;
+}
+.mediumCard h1{
+    margin-bottom: 3rem;
+}
+
 #cards{
     background-color: #b069db;
     padding: 0 0.5rem 0 0.5rem;
+    text-align: center;
 }
 
 .overlay{
-    background-color: #af69dbaa;
+    background-color: #af69dbb5;
     color: white;
     width: 100%;
     height: 100%;
@@ -107,15 +116,22 @@ hr{
     justify-content: center;
     opacity: 0;
     transition: opacity 0.5s ease;
+
+    font-weight: 700;
+    font-size: x-large;
+    padding: 0 0.1rem 0 0.1rem;
 }
 
 .card{
+    text-decoration: none;
     border-radius: 15px;
     border-width: 3px;
     background-color: aquamarine;
     text-align: center;
     margin: 0 auto 2rem auto;
     overflow: hidden;
+
+    max-width: 320px ;
 }
 
 .card:hover{
@@ -123,10 +139,22 @@ hr{
         
         opacity: 100%;
     }
+
 }
 
 .card img{
     height: 100%;
+}
+
+.card h3{
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    font-size: small;
+}
+.card p{
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: small;
 }
 
 /* Medio(video juego comic) cambio */
@@ -264,6 +292,8 @@ footer img{
         background-color: aqua;
         display: flex;
         justify-content: center;
+        padding: 0 10% 0 10%;
+        gap: 0.5rem;
     }
 
     .medio p {
