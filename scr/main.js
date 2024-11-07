@@ -39,7 +39,7 @@ const initiCards = ()=>{
         a.appendChild(overlay);
        
         let img = document.createElement("img");
-        img.src = card.img;
+        //img.src = card.img;
 
         a.appendChild(img);
         
