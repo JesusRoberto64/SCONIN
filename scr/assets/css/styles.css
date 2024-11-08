@@ -132,13 +132,12 @@ hr{
 }
 
 #cards{
-    background-color: #b069db;
     padding: 0 0.5rem 0 0.5rem;
     text-align: center;
 }
 
 .overlay{
-    background-color: #af69dbb5;
+    background-color: #9d00ffb5;
     color: white;
     width: 100%;
     height: 100%;
@@ -159,7 +158,7 @@ hr{
     text-decoration: none;
     border-radius: 15px;
     border-width: 3px;
-    background-color: aquamarine;
+    border-color: #c0c0c0;
     text-align: center;
     margin: 0 auto 2rem auto;
     overflow: hidden;
@@ -202,55 +201,11 @@ hr{
     margin-bottom: 0.5rem;
     font-weight: 700;
     font-size: small;
-    color: gray;
+    color: #c0c0c0;
 }
 
-/* Medio(video juego comic) cambio */
-.medio{
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    text-align: center;
-}
 
-.medio h1{
-    margin-bottom: 4rem;
-}
 
-.medio button{
-    margin-top: 1rem;
-}
-
-.medio p, .medio h2{
-    padding: 0 1.8rem 0 1.8rem;
-    text-align: left;
-}
-
-.medio h2{
-    font-size: 1.3rem;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-#comics button.styled-btn{
-    background-color: #00d464;
-    color: white;
-}
-
-#videojuegos button.styled-btn{
-    background-color: #ff2349;
-    color: white;
-}
-
-/* carruseles */
-
-.miniGalery{
-    visibility: hidden;
-    height: 0%;
-}
-
-.miniGalery img{
-    width: 25%;
-}
 
 /* contact*/
 #contacto{
@@ -337,36 +292,16 @@ footer img{
 
 @media (min-width: 768px) {
     #cards{
-        background-color: aqua;
         display: flex;
         justify-content: center;
         padding: 0 1rem 0 1rem;
         gap: 0.5rem;
     }
     .card{
-        margin: 0;
+        margin: 0 0 2rem 0;
     }
 
-    .medio p {
-        font-size: 1.1rem;
-        text-align: center;
-        padding: 0 3.5rem 0 3.5rem;
-    }
-
-    .carousel{
-        visibility: collapse;
-        height: 0%;
-    }
     
-    .miniGalery{
-        visibility: visible;
-        height: auto;
-        display: flex;
-        gap: 30px;
-        justify-content: center;
-        margin-bottom: 2rem;
-    }
-
     form{
         width: 50%;
         display: block;
@@ -379,35 +314,4 @@ footer img{
         font-size: 1.1rem;
         text-align: center;
     }
-}
-
-/*Boostrap modif*/
-.carousel-indicators {
-    position: relative;
-}
-
-.carousel-indicators button{
-    background-color: black !important;
-    border-radius: 100%;
-    width: 0.5rem !important;
-    height: 0.5rem !important ;
-    margin-top: 0; 
-}
-
-.carousel-indicators [data-bs-target] {
-    opacity: 0.20 !important; /* Aplica opacidad a todos los indicadores */
-}
-
-.carousel-indicators .active {
-    opacity: 1 !important; /* Asegura que el indicador activo tenga opacidad completa */
-}
-
-.carousel img{
-    max-height: 310px;
-    max-width: 343px;
-    
-}
-
-.carousel-item div{
-    background-color: black;
 }

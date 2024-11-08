@@ -1,8 +1,7 @@
 import { createViewport, onWindowResize, animate } from "./js/viewport";
-import { loadHTML } from "./js/loader";
+//import { loadHTML } from "./js/loader";
 
 //card new design
-
 const initiCards = ()=>{
     const cardDiv = document.getElementById("cards");
 
@@ -52,8 +51,8 @@ const initiCards = ()=>{
         a.appendChild(h3);
 
         cardDiv.appendChild(a);
-    })
-    
+    });
+   
     let lastScrollY = window.scrollY;
     const observer = new IntersectionObserver(
         (entries)=>{
@@ -80,10 +79,6 @@ const initiCards = ()=>{
 }
 
 initiCards();
-
-
-//Carrusel load
-initializeCarousel();
 
 //shader load
 let previousWidth = window.innerWidth;
@@ -158,26 +153,3 @@ function isMobile(){
 }
 
 ////
-
-async function loadConfigureCarousel(htmlPath, elementId, carouselSelector, options) {
-    await loadHTML(htmlPath, elementId);
-    const carouselElement  = document.querySelector(carouselSelector);
-    new bootstrap.Carousel(carouselElement, options);
-
-
-}
-
-async function initializeCarousel() {
-    try {
-        await loadConfigureCarousel("./views/courruselEliab.html", "carruselEliab","#carouselEliabIndicators", {
-            interval: 2000,
-            touche: true
-        });
-        await loadConfigureCarousel("./views/carolseProtecor.html", "carruselProtector","#carouselProtectorIndicators", {
-            interval: 2000,
-            touche: true
-        });
-    } catch (error) {
-        console.error("Error al cargar y configurar los carruseles:", error);
-    }
-}
