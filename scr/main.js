@@ -10,19 +10,19 @@ const initiCards = ()=>{
         {
             title: "Eliab y el Círculo del Juego",
             medium: "WEBTOON - WEB COMIC",
-            img: "./assets/proyect_G&W.png",
+            img: "./assets/card_Eliab_00.png",
             url: "https://www.webtoons.com/es/canvas/el-microbusero-2/la-revelaci%C3%B3n/viewer?title_no=742802&episode_no=1"
         },
         {
             title: "Jairo: El Pirata Callejero",
             medium: "MINI COMIC IMPRESO",
-            img: "./assets/proyect_plank.png",
+            img: "./assets/card_Eliab_01.png",
             url: "https://www.google.com/"
         },
         {
-            title: "PROTECTOR",
+            title: "Protector",
             medium: "JUEGO LCD DE ACCIÓN",
-            img: "./assets/proyect_helix.png",
+            img: "./assets/card_Protector_00.png",
             url: "https://sconin.itch.io/protector"
         }
     ]; 
@@ -39,7 +39,7 @@ const initiCards = ()=>{
         a.appendChild(overlay);
        
         let img = document.createElement("img");
-        //img.src = card.img;
+        img.src = card.img;
 
         a.appendChild(img);
         
@@ -53,8 +53,30 @@ const initiCards = ()=>{
 
         cardDiv.appendChild(a);
     })
+    
+    let lastScrollY = window.scrollY;
+    const observer = new IntersectionObserver(
+        (entries)=>{
+            
+            entries.forEach((entry)=>{
+                const isScrollingUp = window.scrollY <= lastScrollY;
+                
+                if ( entry.isIntersecting){
+                    entry.target.classList.add('active');
+                } else if (isScrollingUp) {
+                    entry.target.classList.remove('active');
+                }
+            });
+            lastScrollY = window.scrollY;
+        },
+        {
+            threshold: 0.1
+        }
+    );
 
-
+    document.querySelectorAll('.card').forEach((card) =>{
+        observer.observe(card);
+    });
 }
 
 initiCards();
