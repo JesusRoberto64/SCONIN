@@ -1,83 +1,8 @@
 import { createViewport, onWindowResize, animate } from "./js/viewport";
+import initiCards from "./js/cards";
 //import { loadHTML } from "./js/loader";
 
 //card new design
-const initiCards = ()=>{
-    const cardDiv = document.getElementById("cards");
-
-    const cardsDb = [
-        {
-            title: "Eliab y el Círculo del Juego",
-            medium: "WEBTOON - WEB COMIC",
-            img: "./assets/card_Eliab_00.png",
-            url: "https://www.webtoons.com/es/canvas/el-microbusero-2/la-revelaci%C3%B3n/viewer?title_no=742802&episode_no=1"
-        },
-        {
-            title: "Jairo: El Pirata Callejero",
-            medium: "MINI COMIC IMPRESO",
-            img: "./assets/card_Eliab_01.png",
-            url: "https://www.google.com/"
-        },
-        {
-            title: "Protector",
-            medium: "JUEGO LCD DE ACCIÓN",
-            img: "./assets/card_Protector_00.png",
-            url: "https://sconin.itch.io/protector"
-        }
-    ]; 
-
-    cardsDb.forEach((card)=>{
-        let a = document.createElement("a");
-        a.className = "card";
-        a.href = card.url;
-        a.target = "_blank";
-        
-        let overlay = document.createElement("div");
-        overlay.className = "overlay";
-        overlay.innerText = card.title;
-        a.appendChild(overlay);
-       
-        let img = document.createElement("img");
-        img.src = card.img;
-
-        a.appendChild(img);
-        
-        let p = document.createElement("p");
-        p.innerText = card.medium;
-        a.appendChild(p);
-
-        let h3 = document.createElement("h3"); 
-        h3.innerText = card.title;
-        a.appendChild(h3);
-
-        cardDiv.appendChild(a);
-    });
-   
-    let lastScrollY = window.scrollY;
-    const observer = new IntersectionObserver(
-        (entries)=>{
-            
-            entries.forEach((entry)=>{
-                const isScrollingUp = window.scrollY <= lastScrollY;
-                
-                if ( entry.isIntersecting){
-                    entry.target.classList.add('active');
-                } else if (isScrollingUp) {
-                    entry.target.classList.remove('active');
-                }
-            });
-            lastScrollY = window.scrollY;
-        },
-        {
-            threshold: 0.1
-        }
-    );
-
-    document.querySelectorAll('.card').forEach((card) =>{
-        observer.observe(card);
-    });
-}
-
 initiCards();
 
 //shader load
