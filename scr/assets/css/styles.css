@@ -17,11 +17,13 @@ h1, h2{
 }
 
 hr{
+    border: 0;
     border-top: dashed;
     border-width: 4px;
     margin: 0;
-    height:0%;
+    height:10%;
     border-color: #b069db;
+    background-color: transparent;
     opacity: 100%;
 }
 
@@ -132,43 +134,47 @@ hr{
 }
 
 #cards{
-    padding: 0 0.5rem 0 0.5rem;
+    margin: 0 1rem 0 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .overlay{
+    
     background-color: #9d00ffb5;
+    position: absolute;
     color: white;
     width: 100%;
     height: 100%;
-    position: absolute;
     padding: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    
     opacity: 0;
     transition: opacity 0.5s ease;
-
-    font-weight: 700;
-    font-size: xx-large;
-    padding: 0 1rem 0 1rem;
 }
 
+
 .card{
-    text-decoration: none;
+   
     border-radius: 15px;
-    border-width: 3px;
-    border-color: #c0c0c0;
-    text-align: center;
+    border: 3px solid #c0c0c0;
+
     margin: 0 auto 2rem auto;
     overflow: hidden;
-
-    max-width: 320px ;
     
+    transform: translateY(20px);
+    
+    max-width: 100%;
+
     /*anim opacity*/
     opacity: 0;
-    transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /*
+    */
 }
 
 .card.active{
@@ -182,13 +188,6 @@ hr{
         opacity: 100%;
     }
 
-}
-
-.card img{
-    /*aspect ratio 5:7*/
-    height: 476px;
-    width: 340px;
-   
 }
 
 .card h3{
@@ -293,9 +292,11 @@ footer img{
 @media (min-width: 768px) {
     #cards{
         display: flex;
+        flex-direction: row;
         justify-content: center;
         padding: 0 1rem 0 1rem;
         gap: 0.5rem;
+       
     }
     .card{
         margin: 0 0 2rem 0;

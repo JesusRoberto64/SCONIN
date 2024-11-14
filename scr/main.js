@@ -2,6 +2,9 @@ import { createViewport, onWindowResize, animate } from "./js/viewport";
 import initiCards from "./js/cards";
 //import { loadHTML } from "./js/loader";
 
+
+
+
 //card new design
 initiCards();
 

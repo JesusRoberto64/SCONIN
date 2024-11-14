@@ -12,8 +12,11 @@ const initiCards = ()=>{
         
         let overlay = document.createElement("div");
         overlay.className = "overlay";
-        overlay.innerText = card.title;
         a.appendChild(overlay);
+
+        let pOverlay = document.createElement("h2");
+        pOverlay.innerText = card.title;
+        overlay.appendChild(pOverlay);
        
         let img = document.createElement("img");
         img.src = card.img;
