@@ -2,9 +2,16 @@ import { createViewport, onWindowResize, animate } from "./js/viewport";
 import initiCards from "./js/cards";
 //import { loadHTML } from "./js/loader";
 
-
-
-
+//Load carousel
+$('.carousel').slick({
+    centerMode: true,
+    slidesToShow: 1,
+    accessibility: false,
+    centerPadding: '50px'
+    
+});
+/*
+*/
 //card new design
 initiCards();
 
