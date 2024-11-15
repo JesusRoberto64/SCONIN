@@ -5,9 +5,22 @@ import initiCards from "./js/cards";
 //Load carousel
 $('.carousel').slick({
     centerMode: true,
-    slidesToShow: 1,
+    slidesToShow: 3,
     accessibility: false,
-    centerPadding: '50px'
+    centerPadding: '25px',
+    dots: false,
+    arrows: false,
+    responsive: [
+        {
+            breakpoint : 576,
+            settings:{
+                dots: true,
+                slidesToShow: 1,
+                centerPadding: '50px',
+                arrows: true
+            }
+        }
+    ]
     
 });
 /*
