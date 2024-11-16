@@ -23,8 +23,9 @@ $('.carousel').slick({
     ]
     
 });
-/*
-*/
+
+
+
 //card new design
 initiCards();
 

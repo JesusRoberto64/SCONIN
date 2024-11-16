@@ -21,19 +21,22 @@ hr{
     border: 0;
     border-top: dashed;
     border-width: 4px;
-    margin: 0;
-    height:10%;
+    margin: 0 0 3.5rem 0;
+    /*
+    height: 10%;
+    */
     border-color: #b069db;
     background-color: transparent;
     opacity: 100%;
 }
 
-.styled-btn{
-    border: 0;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    width: 135px;
-    height: 32px;
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    margin: 0;
 }
 
 #viewport{
@@ -42,7 +45,14 @@ hr{
     top: 0%;
 }
 
-/*Loading screen*/
+p{
+    margin-bottom: 1rem;
+    padding: 0 1rem 0 1rem;
+    text-align: left;
+}
+
+/* LOADING SCREEN */
+
 #loadig-screen{
     z-index: 1000;
     position: absolute;
@@ -124,7 +134,7 @@ hr{
     background-position: -16px ;
 }
 
-/*Medium Cards*/
+/* MEDIUM CARDS */
 
 .mediumCard{
     margin-top: 4rem;
@@ -174,8 +184,6 @@ hr{
     /*anim opacity*/
     opacity: 0;
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    /*
-    */
 }
 
 .card.active{
@@ -203,7 +211,24 @@ hr{
     color: #c0c0c0;
 }
 
+/* NOSOTROS */
+
+#nosotros h1{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 /* SLIDER CAROUSEL*/
+
+.carousel{
+    /*overflow: hidden;*/
+    margin: 2.5rem 0 3.5rem 0;
+    
+}
+.carousel div img{
+    width: 98%;
+    margin: auto;
+}
 
 .slick-dots{
     display: flex;
@@ -219,78 +244,55 @@ hr{
     background-color: #9d00ff;
 }
 
-.carousel{
-    /*
-    */
-    overflow: hidden;
-    
 
-}
-.carousel div img{
-    /*
-    */
-    width: 98%;
-    
-    margin: auto;
+
+.slick-list{
+    height: fit-content;
 }
 
-.slick-track{
-   height: auto;
-   
-}
 
 .slick-arrow{
     background-color: aqua;
 }
 
-/* contact*/
-#contacto{
-    margin: 5rem 0 5.5rem 0;
-    text-align: center;
-    padding: 0 2.2rem 0 2.2rem;   
+.slick-prev{
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-95%);
+    
 }
+
+.slick-next{
+    position: absolute;
+    left: 100%;
+    transform: translateX(-100%);
+    bottom: 50%;
+    
+}
+
+/* CONTACT */
 
 #contacto h1{
     margin-bottom: 4rem;
+    text-align: center;
 }
 
-#contacto form{
-    margin-top: 2rem;
+#mailAddress{
+    background-color: #c0c0c0;
+    margin: 2rem 1rem 2.5rem 1rem;
+    border-bottom: solid #b069db;
+}
+
+#mailAddress p{
+    text-align: center;
+    padding: 0.5rem 2rem 0.5rem 2rem;
     margin-bottom: 0;
+    
 }
 
-#contacto p{
-    text-align: left;
+/* FOOTER */
 
-}
-
-input, textarea{
-    width: 100%;
-    margin-bottom: 0.8rem;
-    border-radius: 15px;
-    max-height: 5%;
-    border: 0;
-    background-color: gainsboro;
-    padding: 0.5rem;
-    color: white;
-}
-
-textarea{
-    margin-bottom: 2rem;
-    min-height: 30%;
-}
-
-#contacto button{
-    background-color: #9d00ff;
-    color: white;
-}
-
-input::placeholder,
-textarea::placeholder{
-    color: white;
-}
-
-/*Footer*/
 footer{
     background-color: black;
     text-align: center;
