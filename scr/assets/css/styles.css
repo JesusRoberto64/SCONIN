@@ -47,7 +47,7 @@ button{
 
 p{
     margin-bottom: 1rem;
-    padding: 0 1rem 0 1rem;
+    padding: 0 1.8rem 0 1.8rem;
     text-align: left;
 }
 
@@ -278,9 +278,15 @@ p{
     text-align: center;
 }
 
+#mailTriangle{
+    display: flex;
+    justify-content: center;
+    
+}
+
 #mailAddress{
     background-color: #c0c0c0;
-    margin: 2rem 1rem 2.5rem 1rem;
+    margin: 0 1rem 2.5rem 1rem;
     border-bottom: solid #b069db;
 }
 
@@ -288,7 +294,6 @@ p{
     text-align: center;
     padding: 0.5rem 2rem 0.5rem 2rem;
     margin-bottom: 0;
-    
 }
 
 /* FOOTER */
