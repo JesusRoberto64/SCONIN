@@ -22,9 +22,6 @@ hr{
     border-top: dashed;
     border-width: 4px;
     margin: 0 0 3.5rem 0;
-    /*
-    height: 10%;
-    */
     border-color: #b069db;
     background-color: transparent;
     opacity: 100%;
@@ -51,6 +48,23 @@ p{
     text-align: left;
 }
 
+/* NAV BAR */
+nav{
+    background-color: black;
+    padding: 0.5rem;
+    height: 2.5%;
+    text-align: center;
+}
+
+nav img{
+    /*
+    width: 20%;
+    */
+    max-width: 80px;
+    margin: auto;
+    
+}
+
 /* LOADING SCREEN */
 
 #loadig-screen{
@@ -62,7 +76,6 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 /* HERO */
@@ -70,11 +83,8 @@ p{
 #hero{
     position: absolute;
     color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 100%;
+    transform: translateY(50%);
 }
 
 #hero h1{
@@ -93,6 +103,7 @@ p{
     width: 50%;
     max-width: 360px;
     min-width: 224px;
+    display: none;
 }
 /*typin effect*/
 #hero h1 span {
@@ -271,6 +282,11 @@ p{
     
 }
 
+/* REDES */
+#redes{
+    margin: 2.5rem 0 5.5rem 0;
+}
+
 /* CONTACT */
 
 #contacto h1{
@@ -281,19 +297,40 @@ p{
 #mailTriangle{
     display: flex;
     justify-content: center;
-    
+    margin: 0;
 }
 
 #mailAddress{
     background-color: #c0c0c0;
-    margin: 0 1rem 2.5rem 1rem;
+    margin: 0 3rem 2.5rem 3rem;
     border-bottom: solid #b069db;
 }
 
-#mailAddress p{
+#mailAddress{
     text-align: center;
-    padding: 0.5rem 2rem 0.5rem 2rem;
-    margin-bottom: 0;
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    margin-bottom: 2rem;
+}
+
+/* REDES  */
+#redes{
+    background-color: #c0c0c0;
+    color: #6f6f6f;
+    font-weight: 600;
+    font-size: medium;
+    padding: 3rem 1rem;
+}
+
+#redes p{
+    padding: 0;
+    text-align: center;
+    margin: 0 0.5rem 1.5rem 0.5rem;
+}
+
+#redes > div{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 /* FOOTER */
@@ -301,26 +338,20 @@ p{
 footer{
     background-color: black;
     text-align: center;
-    padding: 3rem;
+    padding: 1.8rem;
 }
 
 footer p{
-    margin: 2.5rem 0 0 0;
+    padding: 0;
+    margin: 0;
     font-size: 0.8rem;
     color: white;
 }
 
-footer div div{
+footer div{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 0;
-}
-
-footer img{
-    width: 30px;
-    height: 30px;
+    justify-content: space-between;
+    
 }
 
 #triangulosNegros{
