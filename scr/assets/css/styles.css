@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: "Urbanist", sans-serif;
     margin: 0;
@@ -48,21 +52,74 @@ p{
     text-align: left;
 }
 
-/* NAV BAR */
-nav{
+/* HEADER BAR */
+header{
+    position: absolute;
     background-color: black;
-    padding: 0.5rem;
-    height: 2.5%;
+    
+    height: 15%;
+    width: 100%;
     text-align: center;
+    
 }
 
-nav img{
-    /*
-    width: 20%;
-    */
-    max-width: 80px;
-    margin: auto;
+header img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 120px;
+}
+
+/* NAV FUNCTION */
+
+#toogle-menu{
+   position: absolute;
+   right: 1rem;
+   top: 50%;
+   transform: translateY(-50%);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 46px;
+   height: 46px;
+   cursor: pointer;
+}
+
+#toogle-menu div{
+   
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   height: 50%;
+   
+}
+
+#toogle-menu span{
+    background-color: #6f6f6f;
+    display: block;
+    height: 3px;
+    width: 25px;
+}
+
+#nav-menu{
+    background-color: aquamarine;
+    position: fixed;
+    top: 15%;
+    right: 0;
+    width: 45%;
     
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
 }
 
 /* LOADING SCREEN */
@@ -84,7 +141,9 @@ nav img{
     position: absolute;
     color: white;
     width: 100%;
-    transform: translateY(50%);
+    /*
+    */
+    transform: translateY(25%);
 }
 
 #hero h1{
@@ -232,8 +291,11 @@ nav img{
 /* SLIDER CAROUSEL*/
 
 .carousel{
-    /*overflow: hidden;*/
+    /*
+    */
+    overflow: hidden;
     margin: 2.5rem 0 3.5rem 0;
+    width: 100%;
     
 }
 .carousel div img{
@@ -254,8 +316,6 @@ nav img{
 .slick-active button{
     background-color: #9d00ff;
 }
-
-
 
 .slick-list{
     height: fit-content;
@@ -365,6 +425,10 @@ footer div{
 /*Dinamic change above a tablet*/
 
 @media (min-width: 768px) {
+    #hero h1{
+        font-size: xx-large;
+    }
+
     #cards{
         display: flex;
         flex-direction: row;
@@ -377,6 +441,10 @@ footer div{
         margin: 0 0 2rem 0;
     }
 
+    #nosotros p{
+        width: 50%;
+        margin: 0 auto 1.2rem auto;
+    }
     
     form{
         width: 50%;
@@ -386,8 +454,8 @@ footer div{
 
     #contacto p {
         width: 50%;
-        margin: 1.2rem auto;
+        margin: 0 auto 1.2rem auto;
         font-size: 1.1rem;
-        text-align: center;
+        
     }
 }
