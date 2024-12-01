@@ -30,6 +30,7 @@ export function createViewport(){
 export function onWindowResize(){
     
     const welcomeElement = document.getElementById('viewport');
+
     const aspectRatio = welcomeElement.clientWidth / welcomeElement.clientHeight;
 
     let width, height;

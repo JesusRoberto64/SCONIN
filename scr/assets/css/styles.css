@@ -54,36 +54,47 @@ p{
 
 /* HEADER BAR */
 header{
-    position: absolute;
+    /*position: absolute;*/
     background-color: black;
     
-    height: 15%;
+    height: 10vh; 
     width: 100%;
     text-align: center;
+    border-bottom: solid 0.25rem #6f6f6f;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
     
 }
 
 header img{
-    position: absolute;
+    /*
+    position: relative;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 5%;
+    transform: translateY(-50%);
+    */
     max-width: 120px;
+    padding: 1rem;
 }
 
 /* NAV FUNCTION */
 
 #toogle-menu{
-   position: absolute;
+   /*
+   
+   position: relative;
    right: 1rem;
    top: 50%;
    transform: translateY(-50%);
    display: flex;
    justify-content: center;
    align-items: center;
+   */
    width: 46px;
    height: 46px;
    cursor: pointer;
+   padding: 1rem;
 }
 
 #toogle-menu div{
@@ -93,7 +104,7 @@ header img{
    justify-content: space-between;
    align-items: center;
    width: 100%;
-   height: 50%;
+   height: 45%;
    
 }
 
@@ -125,7 +136,7 @@ header img{
 /* LOADING SCREEN */
 
 #loadig-screen{
-    z-index: 1000;
+    z-index: 2000;
     position: absolute;
     width:100vw ;
     height: 100vh;
@@ -141,8 +152,6 @@ header img{
     position: absolute;
     color: white;
     width: 100%;
-    /*
-    */
     transform: translateY(25%);
 }
 
@@ -209,17 +218,20 @@ header img{
 .mediumCard{
     margin-top: 4rem;
     text-align: center;
+    margin: 0 1rem 0 1rem;
 }
 .mediumCard h1{
     margin-bottom: 3rem;
+    color: #6f6f6f;
+    background-color: #dadada;
+    padding: 1rem 1rem;
 }
 
 #cards{
-    margin: 0 1rem 0 1rem;
+    /*margin: 0 1rem 0 1rem;*/
     text-align: center;
     display: flex;
     flex-direction: column;
-    
 }
 
 .overlay{
@@ -245,6 +257,7 @@ header img{
     border: 3px solid #c0c0c0;
 
     margin: 0 auto 2rem auto;
+    /*margin-bottom: 2rem;*/
     overflow: hidden;
     
     transform: translateY(20px);
@@ -291,26 +304,34 @@ header img{
 /* SLIDER CAROUSEL*/
 
 .carousel{
-    /*
-    */
     overflow: hidden;
-    margin: 2.5rem 0 3.5rem 0;
+    margin: 0 0 3.5rem 0;
     width: 100%;
     
 }
 .carousel div img{
-    width: 98%;
+    width: 100%;
+    height: 90vh;
     margin: auto;
 }
 
 .slick-dots{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 0.35rem;
+    justify-content: space-between;
     background-color: aquamarine;
+    margin: 0 1rem;
 }
 .slick-dots li{
-    display: inline;
+    height: 0.35rem;
+    width: 100%;
+}
+
+.carousel li button{
+    width: 100%;
+    padding: 0.1rem;
+    border: none;
+    color: transparent;
 }
 
 .slick-active button{

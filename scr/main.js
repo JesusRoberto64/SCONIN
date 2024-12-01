@@ -1,28 +1,26 @@
 import { createViewport, onWindowResize, animate } from "./js/viewport";
 import initiCards from "./js/cards";
-//import { loadHTML } from "./js/loader";
 
 //Load carousel
 $('.carousel').slick({
     centerMode: true,
-    slidesToShow: 3,
+    slidesToShow: 1,
     accessibility: false,
-    centerPadding: '25px',
-    dots: false,
+    centerPadding: '0px',
+    dots: true,
     arrows: false,
     responsive: [
         {
             breakpoint : 576,
             settings:{
-                dots: true,
-                slidesToShow: 1,
-                centerPadding: '50px',
                 arrows: true
             }
         }
     ]
     
 });
+
+
 
 //NAV MENU
 const toogleBtn = document.getElementById("toogle-menu");
@@ -36,29 +34,66 @@ toogleBtn.addEventListener('click', ()=>{
 //card new design
 initiCards();
 
-//shader load
+//SHADER LOAD
 let previousWidth = window.innerWidth;
 
 const viewport = document.getElementById('viewport');
-let hero = document.getElementById('hero');
+const hero = document.getElementById('hero');
 const isMobileDevice = isMobile();
-centerHeroTitle();
+
+if ( viewport !== null ){
+    centerHeroTitle();
+}
 
 document.body.classList.add('no-scroll');
 
 window.addEventListener("load", ()=>{
     setTimeout(()=>{
-        shaderFitScreen();
-        createViewport();
-        onWindowResize();
-        animate();
+        if (viewport !== null){
+            shaderFitScreen();
+            createViewport();
+            onWindowResize();
+            animate();
+        }
         document.body.classList.remove('no-scroll');
         let loading = document.querySelector('#loadig-screen');
         if (loading) {
-            loading.style.display = 'none';
+           loading.style.display = 'none';
         }
+
+        //Carousel Buttons
+        let btns = document.querySelectorAll(".carousel li button")
+        
+        btns.forEach(btn => {
+            //btn.innerHTML = "";
+            
+        });
+
     }, 1000);  
 })
+
+if ( viewport !== null){
+
+    window.addEventListener('resize', ()=>{
+        const currentWidth = window.innerWidth;
+        if (isMobileDevice){
+            const significanteChange = 
+                currentWidth > previousWidth || currentWidth < previousWidth;
+            
+            if ( significanteChange ){
+                //---> aspect ratio
+                shaderFitScreen();
+            }
+        } else {
+            //-->Aspect ratio
+            shaderFitScreen();
+        }
+    
+        previousWidth = currentWidth;
+        centerHeroTitle();
+        onWindowResize();
+    });
+}
 
 //shader and hero sizes
 const shaderFitScreen = ()=>{
@@ -68,33 +103,13 @@ const shaderFitScreen = ()=>{
     }else{
         viewport.style.height = window.innerHeight;
     }
-
     viewport.style.width = window.innerWidth;
 
     centerHeroTitle();
 }
 
-window.addEventListener('resize', ()=>{
-    const currentWidth = window.innerWidth;
-    if (isMobileDevice){
-        const significanteChange = 
-            currentWidth > previousWidth || currentWidth < previousWidth;
-        
-        if ( significanteChange ){
-            //---> aspect ratio
-            shaderFitScreen();
-        }
-    } else {
-        //-->Aspect ratio
-        shaderFitScreen();
-    }
-
-    previousWidth = currentWidth;
-    centerHeroTitle();
-    onWindowResize();
-});
-
 function centerHeroTitle(){
+
     let v = getComputedStyle(viewport).height;
     let viewportValue = parseFloat(v);
 
