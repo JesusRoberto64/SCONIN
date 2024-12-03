@@ -8,7 +8,9 @@ $('.carousel').slick({
     accessibility: false,
     centerPadding: '0px',
     dots: true,
+    //appendDots: $(".dots"),
     arrows: false,
+    
     responsive: [
         {
             breakpoint : 576,

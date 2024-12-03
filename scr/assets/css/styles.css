@@ -305,7 +305,7 @@ header img{
 
 .carousel{
     overflow: hidden;
-    margin: 0 0 3.5rem 0;
+    margin: 0 0 1rem 0;
     width: 100%;
     
 }
@@ -317,25 +317,27 @@ header img{
 
 .slick-dots{
     display: flex;
-    gap: 0.35rem;
+    gap: 0.8rem;
     justify-content: space-between;
-    background-color: aquamarine;
-    margin: 0 1rem;
+    margin: 1rem;
+    list-style: none;
 }
 .slick-dots li{
     height: 0.35rem;
     width: 100%;
+    
 }
 
-.carousel li button{
+.slick-dots li.slick-active button{
+    background-color: #9d00ff;
+}
+
+.slick-dots li button{
     width: 100%;
-    padding: 0.1rem;
+    height: 100%;
     border: none;
     color: transparent;
-}
-
-.slick-active button{
-    background-color: #9d00ff;
+    background-color: aqua;
 }
 
 .slick-list{
@@ -362,6 +364,31 @@ header img{
     bottom: 50%;
     
 }
+
+/* DOTS CUSTOM */
+/*
+
+.dots{
+    display: flex;
+    gap: 0.35rem;
+    justify-content: space-between;
+    background-color: aquamarine;
+    margin: 0 1rem;
+}
+.dots li{
+    height: 0;
+    width: 100%;
+    
+}
+
+.dots li button{
+    width: 100%;
+    padding: 0.1rem;
+    border: none;
+    color: transparent;
+}
+*/
+
 
 /* REDES */
 #redes{
