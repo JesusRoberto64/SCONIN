@@ -15,7 +15,9 @@ $('.carousel').slick({
         {
             breakpoint : 576,
             settings:{
-                arrows: true
+                arrows: true,
+                prevArrow: '<button type="button" class="custom-prev">←</button>',
+                nextArrow: '<button type="button" class="custom-next">→</button>'
             }
         }
     ]

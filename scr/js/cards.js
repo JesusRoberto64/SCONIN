@@ -5,31 +5,27 @@ const initiCards = ()=>{
 
 
     cardsDb.forEach((card)=>{
-        let a = document.createElement("a");
+        let a = document.createElement("div");
         a.className = "card";
-        a.href = card.url;
-        a.target = "_blank";
-        
-        let overlay = document.createElement("div");
-        overlay.className = "overlay";
-        a.appendChild(overlay);
 
-        let pOverlay = document.createElement("h2");
-        pOverlay.innerText = card.title;
-        overlay.appendChild(pOverlay);
-       
         let img = document.createElement("img");
         img.src = card.img;
 
         a.appendChild(img);
         
+        let h3 = document.createElement("h3"); 
+        h3.innerText = card.title;
+        a.appendChild(h3);
+        
         let p = document.createElement("p");
         p.innerText = card.medium;
         a.appendChild(p);
 
-        let h3 = document.createElement("h3"); 
-        h3.innerText = card.title;
-        a.appendChild(h3);
+        let arrow = document.createElement("a");
+        arrow.innerText = '→';
+        arrow.href = card.url;
+        arrow.target = "_blank";
+        a.appendChild(arrow);
 
         cardDiv.appendChild(a);
     });
