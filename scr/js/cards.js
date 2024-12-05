@@ -5,29 +5,33 @@ const initiCards = ()=>{
 
 
     cardsDb.forEach((card)=>{
-        let a = document.createElement("div");
-        a.className = "card";
+        let cardElment = document.createElement("div");
+        cardElment.className = "card";
 
         let img = document.createElement("img");
         img.src = card.img;
 
-        a.appendChild(img);
+        cardElment.appendChild(img);
         
         let h3 = document.createElement("h3"); 
         h3.innerText = card.title;
-        a.appendChild(h3);
+        cardElment.appendChild(h3);
+        
+        let div = document.createElement("div");
+        div.className = "cardDiv";
+        cardElment.appendChild(div);
         
         let p = document.createElement("p");
         p.innerText = card.medium;
-        a.appendChild(p);
+        div.appendChild(p);
 
         let arrow = document.createElement("a");
         arrow.innerText = '→';
         arrow.href = card.url;
         arrow.target = "_blank";
-        a.appendChild(arrow);
+        div.appendChild(arrow);
 
-        cardDiv.appendChild(a);
+        cardDiv.appendChild(cardElment);
     });
    
     let lastScrollY = window.scrollY;

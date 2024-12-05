@@ -54,7 +54,6 @@ p{
 
 /* HEADER BAR */
 header{
-    /*position: absolute;*/
     background-color: black;
     
     height: 10vh; 
@@ -68,12 +67,6 @@ header{
 }
 
 header img{
-    /*
-    position: relative;
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
-    */
     max-width: 120px;
     padding: 1rem;
 }
@@ -81,16 +74,6 @@ header img{
 /* NAV FUNCTION */
 
 #toogle-menu{
-   /*
-   
-   position: relative;
-   right: 1rem;
-   top: 50%;
-   transform: translateY(-50%);
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   */
    width: 46px;
    height: 46px;
    cursor: pointer;
@@ -204,110 +187,6 @@ header img{
     }
 }
 
-.triangulos{
-    position: relative;
-    bottom: 16px;
-    height: 16px;
-    background-image: url(../newTriangle.svg);
-    background-repeat: repeat-x;
-    background-position: -16px ;
-}
-
-/* MEDIUM CARDS */
-
-.mediumCard{
-    margin-top: 4rem;
-    text-align: center;
-    margin: 0 1rem 0 1rem;
-}
-.mediumCard h1{
-    margin-bottom: 3rem;
-    color: #6f6f6f;
-    background-color: #dadada;
-    padding: 1rem 1rem;
-}
-
-#cards{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.overlay{
-    
-    background-color: #9d00ffb5;
-    position: absolute;
-    color: white;
-    width: 100%;
-    height: 100%;
-    padding: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-
-.card{
-   
-    border-bottom: 3px solid #c0c0c0;
-
-    margin: 0 auto 2rem auto;
-    /*margin-bottom: 2rem;*/
-    overflow: hidden;
-    
-    transform: translateY(20px);
-    
-    max-width: 100%;
-    text-decoration: none;
-    /*anim opacity*/
-    opacity: 0;
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.card.active{
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.card:hover{
-    .overlay{
-        
-        opacity: 100%;
-    }
-}
-
-.card h3{
-    margin-bottom: 1.5rem;
-    font-weight: 800;
-    font-size: large;
-}
-.card p{
-    margin: 0rem 0 0.5rem 0;
-    padding: 0;
-    font-weight: 700;
-    font-size: small;
-    color: #c0c0c0;
-    display: inline-block;
-}
-
-.card a{
-    display: inline-block;
-    font-size: x-large;
-    font-weight: bolder;
-    position: relative;
-    left: 45%;
-}
-
-/* NOSOTROS */
-
-#nosotros h1{
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
 /* SLIDER CAROUSEL*/
 
 .carousel{
@@ -324,13 +203,13 @@ header img{
 
 .slick-dots{
     display: flex;
-    gap: 0.8rem;
+    gap: 0.5rem;
     justify-content: space-between;
-    margin: 1rem;
+    margin: 0.1rem 1rem;
     list-style: none;
 }
 .slick-dots li{
-    height: 0.35rem;
+    height: 0.3rem;
     width: 100%;
 }
 
@@ -394,56 +273,145 @@ header img{
     
 }
 
+/* MEDIUM CARDS */
 
-/* REDES */
-#redes{
-    margin: 2.5rem 0 5.5rem 0;
-}
-
-/* CONTACT */
-
-#contacto h1{
-    margin-bottom: 4rem;
+.mediumCard{
     text-align: center;
+    margin: 4rem 1rem 0 1rem;
+}
+.mediumCard h1{
+    margin-bottom: 1rem;
+    color: #6f6f6f;
+    background-color: #dadada;
+    padding: 0.5rem 1rem;
 }
 
-#mailTriangle{
+.mediumCard button{
+    background-color: #9d00ff;
+    border-radius: 50px;
+    border: 0;
+    padding: 0.65rem 2.5rem;
+    margin-top: 1rem;
+
+    color: #dadada;
+    font-weight: bolder;
+    font-size: smaller;
+    box-shadow: 0px 1px 2px #6f6f6f;
+}
+
+#cards{
     display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.overlay{
+    
+    background-color: #9d00ffb5;
+    position: absolute;
+    color: white;
+    width: 100%;
+    height: 100%;
+    padding: auto;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 0;
+    
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
-#mailAddress{
-    background-color: #c0c0c0;
-    margin: 0 3rem 2.5rem 3rem;
-    border-bottom: solid #b069db;
+
+.card{
+   
+    border-bottom: 3px solid #c0c0c0;
+
+    margin: 0 auto 2rem auto;
+    /*margin-bottom: 2rem;*/
+    overflow: hidden;
+    
+    transform: translateY(20px);
+    
+    max-width: 100%;
+    text-decoration: none;
+    /*anim opacity*/
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-#mailAddress{
-    text-align: center;
-    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
-    margin-bottom: 2rem;
+.card.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover{
+    .overlay{
+        
+        opacity: 100%;
+    }
+}
+
+.card h3{
+    margin-bottom: 1rem;
+    font-weight: 800;
+    font-size: large;
+}
+
+.cardDiv{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardDiv p{
+    padding: 0;
+    margin-bottom: 0.55rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #6f6f6f;
+}
+
+.cardDiv a{
+    font-weight: bolder;
+    font-size: large;
+    text-decoration: none;
 }
 
 /* REDES  */
-#redes{
-    background-color: #c0c0c0;
+#apoyo{
+    margin: 2.5rem 0 5.5rem 0;
+    background-color: #edd9fa;
     color: #6f6f6f;
     font-weight: 600;
     font-size: medium;
-    padding: 3rem 1rem;
+    padding: 1rem 1rem 3rem 1rem;
+    margin-bottom: 0;
 }
 
-#redes p{
-    padding: 0;
+#apoyo h1{
     text-align: center;
-    margin: 0 0.5rem 1.5rem 0.5rem;
 }
 
-#redes > div{
+
+#apoyo > div{
     display: flex;
     justify-content: center;
     gap: 0.5rem;
+    align-items: center;
+}
+
+#apoyo p{
+    padding: 0;
+    font-size: small;
+    color: black;
+    margin: 0;
+}
+
+#apoyo a{
+    text-decoration: none;
+    border-left: 2px solid #cc7bfd;
+    text-align: center;
+    padding: 1rem 0.5rem;
+    
 }
 
 /* FOOTER */
@@ -451,28 +419,24 @@ header img{
 footer{
     background-color: black;
     text-align: center;
-    padding: 1.8rem;
+    padding: 1.35rem 1rem;
+    border-top: 0.5rem solid #9d00ff;
+
+    display: flex;
+    justify-content: space-between;
 }
 
 footer p{
     padding: 0;
     margin: 0;
-    font-size: 0.8rem;
+    font-size: 0.70rem;
     color: white;
 }
 
-footer div{
-    display: flex;
-    justify-content: space-between;
-    
-}
-
-#triangulosNegros{
+footer div img{
     height: 16px;
-    background-image: url(../blackTrinagle.svg);
-    background-repeat: repeat-x;
-    width: 100%;
-    background-position: -16px ;
+    width: 16px;
+    margin: 0 0.2rem;
 }
 
 /*Dinamic change above a tablet*/
@@ -482,33 +446,37 @@ footer div{
         font-size: xx-large;
     }
 
+    /* Dots carousel */
+
+    .slick-dots{
+        margin-left: 8%;
+        margin-right: 8%; 
+    }
+
+    /* MEDIUM CARD */
+
+    .mediumCard{
+        margin-left: 8%;
+        margin-right: 8%;    
+    }
+
     #cards{
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        padding: 0 1rem 0 1rem;
+        justify-content: space-between;
         gap: 0.5rem;
-       
     }
     .card{
         margin: 0 0 2rem 0;
+        flex: 2;
+        
     }
-
-    #nosotros p{
-        width: 50%;
-        margin: 0 auto 1.2rem auto;
+    .card img{
+        width: 100%;
     }
     
-    form{
-        width: 50%;
-        display: block;
-        margin: 0 auto;
-    }
-
-    #contacto p {
-        width: 50%;
-        margin: 0 auto 1.2rem auto;
-        font-size: 1.1rem;
-        
+    #apoyo{
+        padding-left: 30%;
+        padding-right: 30%;
     }
 }
