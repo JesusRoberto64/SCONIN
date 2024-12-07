@@ -33,6 +33,7 @@ const navMenu = document.getElementById("nav-menu");
 toogleBtn.addEventListener('click', ()=>{
     navMenu.classList.toggle("hidden");
     navMenu.classList.toggle("visible");
+    toogleBtn.classList.toggle("cancel");
 });
 
 //card new design
