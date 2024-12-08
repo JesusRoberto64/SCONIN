@@ -89,18 +89,27 @@ header img{
    
 }
 
-.cancel span:first-of-type{
-    display: none;
-    background-color: red;
-}
-
 #toogle-menu span{
-    /*
-    */
     background-color: #6f6f6f;
     display: block;
     height: 3px;
     width: 25px;
+    transition: all 0.35s ease;
+    position: relative;
+}
+
+#toogle-menu.cancel span:first-of-type{
+    transform: rotate(135deg);
+    top: 10px;
+}
+
+#toogle-menu.cancel span:nth-child(2){
+    width: 0;
+}
+
+#toogle-menu.cancel span:nth-child(3){
+    top: -8px;
+    transform: rotate(-135deg);
 }
 
 #nav-menu{
@@ -246,7 +255,7 @@ header img{
     height: 100%;
     border: none;
     color: transparent;
-    background-color: aqua;
+    background-color: #6f6f6f;
 }
 
 .slick-list{
