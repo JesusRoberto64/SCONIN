@@ -16,15 +16,13 @@ $('.carousel').slick({
             breakpoint : 576,
             settings:{
                 arrows: true,
-                prevArrow: '<button type="button" class="custom-prev">←</button>',
-                nextArrow: '<button type="button" class="custom-next">→</button>'
+                prevArrow: '<button type="button" class="custom-prev"><img src="./assets/east_Icon.svg" alt="Next"></button>',
+                nextArrow: '<button type="button" class="custom-next"><img src="./assets/east_Icon.svg" alt="Next"></button>'
             }
         }
     ]
     
 });
-
-
 
 //NAV MENU
 const toogleBtn = document.getElementById("toogle-menu");

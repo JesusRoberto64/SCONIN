@@ -2,7 +2,7 @@ import cardsDb from "./cardsDb";
 
 const initiCards = ()=>{
     const cardDiv = document.getElementById("cards");
-
+    const arrSvg = "./assets/east_Icon.svg"
 
     cardsDb.forEach((card)=>{
         let cardElment = document.createElement("div");
@@ -26,10 +26,14 @@ const initiCards = ()=>{
         div.appendChild(p);
 
         let arrow = document.createElement("a");
-        arrow.innerText = '→';
+        //arrow.innerText = '→';
         arrow.href = card.url;
         arrow.target = "_blank";
         div.appendChild(arrow);
+
+        let imgArrow = document.createElement('img');
+        imgArrow.src = arrSvg;
+        arrow.appendChild(imgArrow);
 
         cardDiv.appendChild(cardElment);
     });
