@@ -1,5 +1,6 @@
 import { createViewport, onWindowResize, animate } from "./js/viewport";
 import initiCards from "./js/cards";
+import carouselChangeImg from "./js/carouselSizeImg"
 
 //Load carousel
 $('.carousel').slick({
@@ -8,7 +9,7 @@ $('.carousel').slick({
     accessibility: false,
     centerPadding: '0px',
     dots: true,
-    autoplay: true,
+    //autoplay: true,
     arrows: false,
     
     responsive: [
@@ -24,6 +25,10 @@ $('.carousel').slick({
     
 });
 
+//CHANGE IMAGE
+window.addEventListener('resize', carouselChangeImg);
+carouselChangeImg();
+
 //NAV MENU
 const toogleBtn = document.getElementById("toogle-menu");
 const navMenu = document.getElementById("nav-menu");
@@ -36,6 +41,7 @@ toogleBtn.addEventListener('click', ()=>{
 
 //card new design
 initiCards();
+
 
 //SHADER LOAD
 let previousWidth = window.innerWidth;
