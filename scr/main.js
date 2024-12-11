@@ -26,8 +26,8 @@ $('.carousel').slick({
 });
 
 //CHANGE IMAGE
-window.addEventListener('resize', carouselChangeImg);
-carouselChangeImg();
+//window.addEventListener('resize', carouselChangeImg);
+//carouselChangeImg();
 
 //NAV MENU
 const toogleBtn = document.getElementById("toogle-menu");

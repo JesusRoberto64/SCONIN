@@ -16,10 +16,12 @@ const carouselChangeImg = ()=>{
     const imgs = document.querySelectorAll('.banner');
     const width = window.innerWidth;
     
-    imgs.forEach(img => {
-        console.log(img.src);
-    });
     if (width <= 768){
+        imgs.forEach(img => {
+            const route = img.src
+            //img.src = route + "_MOVIL.png"
+            console.log(img.src);
+        });
     }else{
         
     }
