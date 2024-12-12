@@ -78,18 +78,18 @@ header img{
    width: 46px;
    height: 46px;
    cursor: pointer;
-   padding: 1rem 1rem 0 1rem;
+   display: flex;
+   align-items: center;
+   padding-right: 1rem;
 }
 
 #toogle-menu div{
-   
    display: flex;
    flex-direction: column;
    justify-content: space-between;
    align-items: center;
    width: 100%;
    height: 45%;
-   
 }
 
 #toogle-menu span{
@@ -256,35 +256,14 @@ header img{
     margin: 0 0 1rem 0;
     display: flex;
     flex-wrap: wrap;
-    /*
-    width: 100%;
-    height: auto;
-    */
-    height: fit-content;
 }
 
 .slick-track{
-    /*
-    height: 600px;
-    height: auto;
-    */
     height: fit-content;
-}
-
-.slick-list{
-    /*
-    height: fit-content;
-    height: auto;
-    */
 }
 
 .carousel div img{
-    width: 100%;
-    /*
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    */
+    width: 100vw;
     margin: auto;
 }
 
@@ -303,13 +282,21 @@ header img{
 
 .slick-dots li.slick-active button{
     background-color: #9d00ff;
+   
+}
+
+.slick-dots li.slick-active button::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
 }
 
 .slick-dots li button{
     width: 100%;
     height: 100%;
-    /*
-    */
     border: none;
     color: transparent;
     background-color: #6f6f6f;
@@ -335,7 +322,7 @@ header img{
     height: 2.5rem;
     width: 2.5rem;
 
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: #f5f7f7; 
     border-radius: 50%;
 
     font-size: 20px;
@@ -360,11 +347,6 @@ header img{
     transform: translateX(-100%);
     bottom: 50%;
     
-}
-
-/* BANNER IMGS */
-.banner{
-    background-image: url(/SCONIN/assets/ANUNCIO_1_ESCRITORIO.png);
 }
 
 /* MEDIUM CARDS */

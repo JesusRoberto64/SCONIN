@@ -10,15 +10,13 @@ $('.carousel').slick({
     centerPadding: '0px',
     dots: true,
     //autoplay: true,
-    arrows: false,
-    
+    prevArrow: '<button type="button" class="custom-prev"><img src="./assets/east_Icon.svg" alt="Next"></button>',
+    nextArrow: '<button type="button" class="custom-next"><img src="./assets/east_Icon.svg" alt="Next"></button>',
     responsive: [
         {
             breakpoint : 576,
             settings:{
-                arrows: true,
-                prevArrow: '<button type="button" class="custom-prev"><img src="./assets/east_Icon.svg" alt="Next"></button>',
-                nextArrow: '<button type="button" class="custom-next"><img src="./assets/east_Icon.svg" alt="Next"></button>'
+                arrows: false, 
             }
         }
     ]
@@ -26,8 +24,10 @@ $('.carousel').slick({
 });
 
 //CHANGE IMAGE
-//window.addEventListener('resize', carouselChangeImg);
-//carouselChangeImg();
+window.addEventListener('resize', carouselChangeImg);
+carouselChangeImg();
+
+//NEXT SLIDE
 
 //NAV MENU
 const toogleBtn = document.getElementById("toogle-menu");
@@ -69,14 +69,6 @@ window.addEventListener("load", ()=>{
         if (loading) {
            loading.style.display = 'none';
         }
-
-        //Carousel Buttons
-        let btns = document.querySelectorAll(".carousel li button")
-        
-        btns.forEach(btn => {
-            //btn.innerHTML = "";
-            
-        });
 
     }, 1000);  
 })
