@@ -10,6 +10,7 @@ $('.carousel').slick({
     centerPadding: '0px',
     dots: true,
     //autoplay: true,
+    //pauseOnHover: true,
     prevArrow: '<button type="button" class="custom-prev"><img src="./assets/east_Icon.svg" alt="Next"></button>',
     nextArrow: '<button type="button" class="custom-next"><img src="./assets/east_Icon.svg" alt="Next"></button>',
     responsive: [
@@ -27,7 +28,38 @@ $('.carousel').slick({
 window.addEventListener('resize', carouselChangeImg);
 carouselChangeImg();
 
-//NEXT SLIDE
+//NEXT SLIDE FILL
+let width = 0;
+let progressBar = document.querySelector('.slick-dots li.slick-active button');
+//progressBar.style.width = 100 + "%"
+let intervalID;
+
+
+$('.carousel').on('afterChange', (event, slick, currentSlide)=>{
+    width = 0
+    progressBar.style.width = width + "%"
+    progressBar = document.querySelector('.slick-dots li.slick-active button');
+    
+    if (intervalID){
+        clearInterval(intervalID);
+    }
+
+    intervalID = setInterval(fillBar,30);
+});
+
+const fillBar = ()=>{
+    if ( width >= 100){
+        clearInterval(intervalID);
+        progressBar.style.width = width + "%"
+        $('.carousel').slick('slickNext');
+        console.log("STOP");
+    } else {
+        width ++;
+        progressBar.style.width = width + "%"
+    }
+}
+
+intervalID = setInterval(fillBar,30);
 
 //NAV MENU
 const toogleBtn = document.getElementById("toogle-menu");

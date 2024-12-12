@@ -278,28 +278,23 @@ header img{
 .slick-dots li{
     height: 0.3rem;
     width: 100%;
+    background-color: #6f6f6f;
 }
 
 .slick-dots li.slick-active button{
-    background-color: #9d00ff;
-   
-}
-
-.slick-dots li.slick-active button::after{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: aqua;
+    width: 0%;
+    display: block;
 }
 
 .slick-dots li button{
-    width: 100%;
+    width: 0%;
     height: 100%;
-    border: none;
     color: transparent;
-    background-color: #6f6f6f;
+    border: 0 ;
+    background-color: #9d00ff;
+    
+    display: none;
+    
 }
 
 .slick-arrow{
