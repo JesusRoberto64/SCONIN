@@ -5,8 +5,10 @@ const initiCards = ()=>{
     const arrSvg = "./assets/east_Icon.svg"
 
     cardsDb.forEach((card)=>{
-        let cardElment = document.createElement("div");
+        let cardElment = document.createElement("a");
         cardElment.className = "card";
+        cardElment.href = card.url;
+        cardElment.target = "_blank";
 
         let img = document.createElement("img");
         img.src = card.img;
@@ -25,10 +27,7 @@ const initiCards = ()=>{
         p.innerText = card.medium;
         div.appendChild(p);
 
-        let arrow = document.createElement("a");
-        //arrow.innerText = '→';
-        arrow.href = card.url;
-        arrow.target = "_blank";
+        let arrow = document.createElement("div");
         div.appendChild(arrow);
 
         let imgArrow = document.createElement('img');

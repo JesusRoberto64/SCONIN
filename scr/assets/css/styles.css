@@ -69,7 +69,7 @@ header{
 
 header img{
     max-width: 120px;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 /* NAV FUNCTION */
@@ -80,14 +80,14 @@ header img{
    cursor: pointer;
    display: flex;
    align-items: center;
-   padding-right: 1rem;
+   padding-right: 1.5rem;
 }
 
 #toogle-menu div{
    display: flex;
    flex-direction: column;
    justify-content: space-between;
-   align-items: center;
+   align-items: end;
    width: 100%;
    height: 45%;
 }
@@ -107,7 +107,7 @@ header img{
 }
 
 #toogle-menu.cancel span:nth-child(2){
-    width: 0;
+    height: 0;
 }
 
 #toogle-menu.cancel span:nth-child(3){
@@ -163,7 +163,7 @@ header img{
     text-decoration: none;
     border-radius: 45px;
     display: flex;
-    padding: 0.45rem;
+    padding: 0.4rem 1rem;
     justify-content: flex-end;
     text-align: center;
     align-items: center;
@@ -292,7 +292,7 @@ header img{
     color: transparent;
     border: 0 ;
     background-color: #9d00ff;
-    
+    padding: 0;
     display: none;
     
 }
@@ -377,11 +377,13 @@ header img{
 }
 
 .card{
-   
-    border-bottom: 3px solid #c0c0c0;
+    background-color: white;
+    text-decoration: none;
+    
+    box-shadow: 0px 4px 0px #c0c0c0;
+    border-radius: 15px;
 
     margin: 0 auto 2rem auto;
-    /*margin-bottom: 2rem;*/
     overflow: hidden;
     
     transform: translateY(20px);
@@ -390,31 +392,35 @@ header img{
     text-decoration: none;
     /*anim opacity*/
     opacity: 0;
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease;
 }
 
 .card.active{
     opacity: 1;
     transform: translateY(0);
+    
 }
 
-.card:hover{
-    .overlay{
-        
-        opacity: 100%;
-    }
+.card.active:hover{
+    transform: translateY(-8px);
+    box-shadow: 2px 12px 2px #c0c0c0;
 }
 
 .card h3{
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.25rem;
+    margin-top: 0.75rem;
     font-weight: 800;
     font-size: large;
+    padding: 0 0.30rem;
+    color: rgb(39, 39, 39);
 }
 
 .cardDiv{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 0.30rem;
+    margin-bottom: 0.75rem;
 }
 
 .cardDiv p{
@@ -621,11 +627,9 @@ footer div img{
 
     #apoyoBtn{
         background-color: #9d00ff;
-        
         text-decoration: none;
         border-radius: 45px;
         display: flex;
-        padding: 0.35rem;
         justify-content: center;
         text-align: center;
         align-items: center;

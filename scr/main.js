@@ -1,6 +1,7 @@
 import { createViewport, onWindowResize, animate } from "./js/viewport";
 import initiCards from "./js/cards";
-import carouselChangeImg from "./js/carouselSizeImg"
+import carouselChangeImg from "./js/carouselSizeImg";
+import { setProgressBar, startFillBar, stopFillBar } from "./js/progressBar";
 
 //Load carousel
 $('.carousel').slick({
@@ -29,37 +30,22 @@ window.addEventListener('resize', carouselChangeImg);
 carouselChangeImg();
 
 //NEXT SLIDE FILL
-let width = 0;
-let progressBar = document.querySelector('.slick-dots li.slick-active button');
-//progressBar.style.width = 100 + "%"
-let intervalID;
+setProgressBar();
 
+let hoverTimer = null;
+let hovering = false;
+let playingBar = false;
 
-$('.carousel').on('afterChange', (event, slick, currentSlide)=>{
-    width = 0
-    progressBar.style.width = width + "%"
-    progressBar = document.querySelector('.slick-dots li.slick-active button');
-    
-    if (intervalID){
-        clearInterval(intervalID);
-    }
-
-    intervalID = setInterval(fillBar,30);
+const carousel = document.querySelector('.slick-track');
+carousel.addEventListener('mouseover', ()=>{
+    console.log("STOP IT!!")
+    //stopFillBar();
 });
-
-const fillBar = ()=>{
-    if ( width >= 100){
-        clearInterval(intervalID);
-        progressBar.style.width = width + "%"
-        $('.carousel').slick('slickNext');
-        console.log("STOP");
-    } else {
-        width ++;
-        progressBar.style.width = width + "%"
-    }
-}
-
-intervalID = setInterval(fillBar,30);
+carousel.addEventListener('mouseout', ()=>{
+    console.log("Fill it!!");
+    //startFillBar();
+});
+//'mousemove' pending
 
 //NAV MENU
 const toogleBtn = document.getElementById("toogle-menu");
