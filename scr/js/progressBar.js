@@ -1,8 +1,6 @@
 //Progress bar for dots of carousel
 let width = 0;
 let progressBar;
-
-//progressBar.style.width = 100 + "%"
 let intervalID;
 
 const fillBar = ()=>{
@@ -33,6 +31,9 @@ export const setProgressBar = ()=>{
 };
 
 export const startFillBar = ()=>{
+    if (intervalID){
+        clearInterval(intervalID)
+    }
     intervalID = setInterval(fillBar,30);
 };
 

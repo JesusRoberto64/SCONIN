@@ -10,8 +10,6 @@ $('.carousel').slick({
     accessibility: false,
     centerPadding: '0px',
     dots: true,
-    //autoplay: true,
-    //pauseOnHover: true,
     prevArrow: '<button type="button" class="custom-prev"><img src="./assets/east_Icon.svg" alt="Next"></button>',
     nextArrow: '<button type="button" class="custom-next"><img src="./assets/east_Icon.svg" alt="Next"></button>',
     responsive: [
@@ -32,20 +30,54 @@ carouselChangeImg();
 //NEXT SLIDE FILL
 setProgressBar();
 
+
 let hoverTimer = null;
 let hovering = false;
-let playingBar = false;
 
-const carousel = document.querySelector('.slick-track');
+const carousel = document.querySelector('.carousel');
+
 carousel.addEventListener('mouseover', ()=>{
-    console.log("STOP IT!!")
-    //stopFillBar();
+    if (!hovering){
+        hovering = true;
+        stopFillBar();
+    }
+
+    //Cancelar hover timer
+    if ( hoverTimer !== null){
+        clearTimeout(hoverTimer);
+    }
+    //inicirar nuevo timer
+    hoverTimer = setTimeout(()=>{
+        startFillBar();
+    },3000);
+
 });
+
+carousel.addEventListener('mousemove', ()=>{
+    stopFillBar();
+
+    //Reiniciar temporalizador
+    if ( hoverTimer !== null){
+        clearTimeout(hoverTimer);
+    }
+    
+    hoverTimer = setTimeout(()=>{
+        startFillBar();
+    },3000);
+    
+});
+
 carousel.addEventListener('mouseout', ()=>{
-    console.log("Fill it!!");
-    //startFillBar();
+    if (hovering){
+        hovering = false;
+        startFillBar();
+    }
+
+    //clear hover timer
+    if ( hoverTimer !== null){
+        clearTimeout(hoverTimer);
+    }
 });
-//'mousemove' pending
 
 //NAV MENU
 const toogleBtn = document.getElementById("toogle-menu");
@@ -57,7 +89,7 @@ toogleBtn.addEventListener('click', ()=>{
     toogleBtn.classList.toggle("cancel");
 });
 
-//card new design
+//CARD INIT
 initiCards();
 
 
@@ -86,6 +118,7 @@ window.addEventListener("load", ()=>{
         let loading = document.querySelector('#loadig-screen');
         if (loading) {
            loading.style.display = 'none';
+           startFillBar();
         }
 
     }, 1000);  
