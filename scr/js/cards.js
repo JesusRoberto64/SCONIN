@@ -2,6 +2,8 @@ import cardsDb from "./cardsDb";
 
 const initiCards = ()=>{
     const cardDiv = document.getElementById("cards");
+    if (!cardDiv){ return }
+
     const arrSvg = "./assets/east_Icon.svg"
 
     cardsDb.forEach((card)=>{

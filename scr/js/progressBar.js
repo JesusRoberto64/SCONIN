@@ -3,6 +3,11 @@ let width = 0;
 let progressBar;
 let intervalID;
 
+//timer
+let hoverTimer = null;
+let hovering = false;
+
+
 const fillBar = ()=>{
     if ( width >= 100){
         clearInterval(intervalID);
@@ -41,3 +46,54 @@ export const stopFillBar = ()=>{
     clearInterval(intervalID);
 };
 
+export const setTimer = (carousel)=>{
+    carousel.addEventListener('mouseover', ()=>{
+        if (!hovering){
+            hovering = true;
+            stopFillBar();
+        }
+    
+        //Cancelar hover timer
+        if ( hoverTimer !== null){
+            clearTimeout(hoverTimer);
+        }
+        //inicirar nuevo timer
+        hoverTimer = setTimeout(()=>{
+            startFillBar();
+        },3000);
+        
+    });
+        
+    carousel.addEventListener('mousemove', ()=>{
+        stopFillBar();
+    
+        //Reiniciar temporalizador
+        if ( hoverTimer !== null){
+            clearTimeout(hoverTimer);
+        }
+        
+        hoverTimer = setTimeout(()=>{
+            startFillBar();
+        },3000);
+            
+    });
+        
+    carousel.addEventListener('mouseout', ()=>{
+        if (hovering){
+            hovering = false;
+            startFillBar();
+        }
+    
+        //clear hover timer
+        if ( hoverTimer !== null){
+            clearTimeout(hoverTimer);
+        }
+    });
+};
+
+export const restartBar = ()=>{
+    clearInterval(intervalID);
+    progressBar.style.width = '0%';
+    width = 0;
+    startFillBar();
+};

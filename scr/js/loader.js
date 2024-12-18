@@ -1,17 +1,38 @@
-export function loadHTML(filePath, containerId){
+export function loadHTML(filePath, continerElement){
     return new Promise((resolve, reject)=>{
-        fetch(filePath)
-            .then( response => {
-                if (!response.ok){
-                    throw new Error(`Http error! Status: ${response.status}`)
-                }
-                return response.text();
-            })
-            .then(data =>{
-                document.getElementById(containerId).innerHTML = data;
-                resolve();
-            })
-            .catch(erorr => reject(erorr));
-    });
 
+        fetch(filePath)
+        .then( response => {
+            if (!response.ok){
+                throw new Error(`HTML error! Status: ${response.status}`)
+            }
+            return response.text();
+        })
+        .then(html =>{
+            continerElement.innerHTML = html;
+            resolve();
+        })
+        .catch(error => {
+            console.log(error);
+            continerElement.innerHTML = `<h1>Error</h1><p>No se pudo cargar el archivo.</p>`;
+            reject(error);
+        });
+
+    })
+    /*
+    fetch(filePath)
+        .then( response => {
+            if (!response.ok){
+                throw new Error(`HTML error! Status: ${response.status}`)
+            }
+            return response.text();
+        })
+        .then(html =>{
+            continerElement.innerHTML = html;
+        })
+        .catch(error => {
+            console.log(error);
+            continerElement.innerHTML = `<h1>Error</h1><p>No se pudo cargar el archivo.</p>`;
+        });
+    */
 }
