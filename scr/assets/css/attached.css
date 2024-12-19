@@ -1,0 +1,56 @@
+hr{
+    margin: 0 8%;
+}
+
+.nosotros-section h1, h2, p{
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.nosotros-section ul{
+    list-style: none;
+}
+
+.nosotros-section li div{
+    background-color: aqua;
+    display: flex;
+    padding: 0.45rem;
+    font-size: small;
+}
+
+.nosotros-section div.faq-upercorner{
+    background-color: brown;
+}
+
+.nosotros-section div.faq-downcorner{
+    background-color: brown;
+}
+
+/*Image hero like*/
+#nostrosImg{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+#nostrosImg img{
+    width: 49%;
+    margin-top: 0.5rem;
+}
+/*Secciones*/
+.nosotros-section{
+    display: flex;
+    margin: 1rem 8%;
+    flex-wrap: wrap;
+}
+
+.nosotros-section > :nth-child(1){
+    flex: 1;
+    font-size: x-large;
+}
+
+.nosotros-section > :nth-child(2){
+    flex: 2;
+}
+

@@ -31,7 +31,7 @@ router.on({
         loadHTML('./views/nosotros.html', appElement);
     },
     'proyectos' : () =>{
-        appElement.innerHTML = `<h1>¿QUIERES APOYAR?</h1>`
+        appElement.innerHTML = `<h1>Nuestro trabajo</h1>`
     }
 }).resolve();
 

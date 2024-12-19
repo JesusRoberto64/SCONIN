@@ -22,16 +22,6 @@ h1, h2{
     font-weight: 800;
 }
 
-hr{
-    border: 0;
-    border-top: dashed;
-    border-width: 4px;
-    margin: 0 0 3.5rem 0;
-    border-color: #b069db;
-    background-color: transparent;
-    opacity: 100%;
-}
-
 ul{
     margin: 0;
     padding: 0;
@@ -56,9 +46,13 @@ p{
 /* HEADER BAR */
 header{
     background-color: black;
+    
     height: 10vh; 
+    
     width: 100%;
+    
     border-bottom: solid 0.5rem #9d00ff;
+    
     z-index: 1000;
     display: flex;
     
@@ -117,6 +111,8 @@ header img{
 
 #nav-menu{
     position: absolute;
+    /*
+    */
     top: 10vh;
     right: 0;
     left: 0;
@@ -191,64 +187,6 @@ header img{
     justify-content: center;
 }
 
-/* HERO */
-
-#hero{
-    position: absolute;
-    color: white;
-    width: 100%;
-    transform: translateY(25%);
-}
-
-#hero h1{
-    text-align: center;
-    text-shadow: black 1px 2px;
-    margin: 0.3rem 0 0 0;
-    font-size: 1.8rem;
-    padding: 0 2rem 0 2rem;
-    color: white;
-
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-#hero img{
-    width: 50%;
-    max-width: 360px;
-    min-width: 224px;
-    display: none;
-}
-/*typin effect*/
-#hero h1 span {
-    
-    display: inline-block;
-    overflow: hidden;
-    border-right: 2px solid white;
-    white-space: nowrap;
-    animation: typing 2.0s steps(14, end) 1.0s,
-        blink 0.3s steps(10, end) 0.1s infinite alternate;
-    
-}
-
-@keyframes typing{
-    from{
-        width: 0;
-    }
-    to{
-        width: 100%;
-        
-    }
-}
-
-@keyframes blink{
-    from{
-        border-color: white;
-    }
-    to{
-        border-color: transparent;
-    }
-}
-
 /* SLIDER CAROUSEL*/
 
 .carousel{
@@ -278,7 +216,7 @@ header img{
 .slick-dots li{
     height: 0.3rem;
     width: 100%;
-    background-color: #6f6f6f;
+    background-color: #dadada;
 }
 
 .slick-dots li.slick-active button{
@@ -353,7 +291,6 @@ header img{
 .mediumCard h1{
     margin-bottom: 1rem;
     color: #6f6f6f;
-    background-color: #dadada;
     padding: 0.5rem 1rem;
 }
 
@@ -364,7 +301,7 @@ header img{
     padding: 0.65rem 2.5rem;
     margin-top: 1rem;
 
-    color: #dadada;
+    color: white;
     font-weight: bolder;
     font-size: smaller;
     font-family: "Urbanist", sans-serif;
@@ -403,7 +340,7 @@ header img{
 
 .card.active:hover{
     transform: translateY(-8px);
-    box-shadow: 2px 12px 2px #c0c0c0;
+    box-shadow: 0px 12px 3px #c0c0c0;
 }
 
 .card h3{
@@ -411,7 +348,7 @@ header img{
     margin-top: 0.75rem;
     font-weight: 800;
     font-size: large;
-    padding: 0 0.30rem;
+    padding: 0 0.75rem;
     color: rgb(39, 39, 39);
 }
 
@@ -419,7 +356,7 @@ header img{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 0.30rem;
+    padding: 0 0.75rem;
     margin-bottom: 0.75rem;
 }
 
@@ -476,7 +413,8 @@ header img{
     text-decoration: none;
     border-left: 2px solid #cc7bfd;
     text-align: center;
-    padding: 1rem 0.5rem; 
+    padding: 1rem 0.5rem;
+    
 }
 
 
