@@ -6,7 +6,7 @@ import { loadHTML } from "./js/loader";
 import { carouselConfig } from "./js/crouselUtils";
 
 // NVIGATION APP
-const router = new Navigo('/SCONIN', {hash: false});
+const router = new Navigo('/SCONIN', {hash: false, noMatchWarning: true});
 const appElement = document.getElementById('app');
 
 router.on({
