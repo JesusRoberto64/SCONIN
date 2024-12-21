@@ -60,6 +60,9 @@ header{
 
 header img{
     max-width: 120px;
+}
+
+header > a{
     padding: 1.5rem;
 }
 
@@ -519,9 +522,13 @@ footer div img{
     }
 
     header img{
-        margin-left: 5%;
         padding: 0.65rem;
         max-width: 160px;
+    }
+
+    header a{
+        margin-left: 5%;
+        padding: 0;
     }
 
     nav{

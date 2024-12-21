@@ -9,6 +9,7 @@ let hovering = false;
 
 
 const fillBar = ()=>{
+    if ( progressBar === null){return}
     if ( width >= 100){
         clearInterval(intervalID);
         progressBar.style.width = width + "%"

@@ -2,47 +2,29 @@ hr{
     margin: 0 8%;
 }
 
-.nosotros-section h1, h2, p{
-    margin: 0;
-    padding: 0;
-    color: black;
-}
 
-.nosotros-section ul{
-    list-style: none;
-}
-
-.nosotros-section li div{
-    background-color: aqua;
-    display: flex;
-    padding: 0.45rem;
-    font-size: small;
-}
-
-.nosotros-section div.faq-upercorner{
-    background-color: brown;
-}
-
-.nosotros-section div.faq-downcorner{
-    background-color: brown;
-}
-
-/*Image hero like*/
+/*Image HERO like*/
 #nostrosImg{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 4rem;
 }
+
 #nostrosImg img{
     width: 49%;
     margin-top: 0.5rem;
 }
-/*Secciones*/
+
+/* NOSOTROS Secciones */
+.nosotros-section h1, h2, p{
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
 .nosotros-section{
-    display: flex;
-    margin: 1rem 8%;
-    flex-wrap: wrap;
+    margin: 1.5rem 8%;
 }
 
 .nosotros-section > :nth-child(1){
@@ -52,5 +34,118 @@ hr{
 
 .nosotros-section > :nth-child(2){
     flex: 2;
+    margin-top: 0.5rem;
+    padding-left: 0rem;
+}
+
+/* FAQ */
+
+#faq{
+    list-style: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.answer{
+    height: 0;
+    background-color: rgb(190, 239, 248);
+    color: transparent;
+    overflow: hidden;
+    padding: 0rem 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.answer-show{
+    overflow: visible;
+    height: auto;
+    padding: 0.65rem 0.85rem;
+    color: black;
+
+}
+
+.answer-hide{
+    height: 0;
+    display: none;
+}
+
+.nosotros-section li div{
+    background-color: rgb(233, 233, 233);
+    display: flex;
+    padding: 0.65rem;
+    font-size: x-small;
+    gap: 1rem;
+    border-bottom: 0.05rem solid rgb(212, 212, 212);
+}
+
+.nosotros-section li div h2{
+    font-weight: 600;
+}
+
+.nosotros-section div.faq-downcorner{
+    border-bottom: 0;
+}
+
+#faq button{
+    background-color: transparent;
+    text-decoration: none;
+    border: 0;
+}
+
+#faq button:hover{
+    background-color: aliceblue;
+}
+
+/* PARTICIPANTES */
+.particpantes{
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0rem;
+}
+
+.particpantes h2{
+    border: 0.05rem solid rgb(212, 212, 212);
+    padding: 0.65rem 1.75rem;
+    text-align: center;
+    border-radius: 6px;
+    font-size: small;
+    font-weight: 700;
+}
+.particpantes a{
+    text-decoration: none;
+}
+
+@media (min-width: 576px) {
+
+    /* NOSOTROS Secciones */
+    
+    .nosotros-section{
+        display: flex;
+        margin: 1rem 8%;
+        flex-wrap: wrap;
+    }
+    
+    .nosotros-section > :nth-child(2){
+        margin-top: 0rem;
+        padding-left: 0.2rem;
+    }
+    /* FAQ */
+    
+    
+    .nosotros-section li div{
+        padding: 1.15rem;
+        font-size: small;
+    }
+    
+    
+
+    .nosotros-section li div h2{
+        font-weight: 500;
+    }
+    
+    /* PARTICIPANTES */
+    
+    .particpantes h2{
+        font-size: medium;
+    }
 }
 
