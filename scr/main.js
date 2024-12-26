@@ -4,26 +4,7 @@ import carouselChangeImg from "./js/carouselSizeImg";
 import { setProgressBar, startFillBar, setTimer, restartBar } from "./js/progressBar";
 import { loadHTML } from "./js/loader";
 import { carouselConfig } from "./js/crouselUtils";
-
-//Declare FAQ
-const faqs = [
-    { 
-        question: "¿Puedo contratatar su servicio?",
-        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit facilis beatae."
-    },
-    { 
-        question: "¿Puedo contratatar su servicio?",
-        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit facilis beatae."
-    },
-    { 
-        question: "¿Puedo contratatar su servicio?",
-        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit facilis beatae."
-    },
-    { 
-        question: "¿Puedo contratatar su servicio?",
-        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit facilis beatae."
-    },
-]
+import { initFaq } from "./js/faqs";
 
 // NVIGATION APP
 const router = new Navigo('/SCONIN', {hash: false, noMatchWarning: true});
@@ -44,48 +25,29 @@ router.on({
             setTimer(carousel);
             startFillBar();
             
-        })
-        
+        });
     },
     'nosotros' : () =>{
         loadHTML('./views/nosotros.html', appElement)
-        .then( ()=>{
-            //const answers = document.querySelectorAll(".answer");
-            const faqList = document.getElementById('faq');
-            faqs.forEach(faq => {
-                const li = document.createElement('li');
+        .then(initFaq)
+        .then(()=>{
+            //CAROUSEL trigger anim
+            const track = document.querySelector('.carousel-nosotros-track');
+            let position = 0;
+            const speed = 0.5;
 
-                const div = document.createElement('div');
-                
-                const button = document.createElement('button');
-                
-                button.innerHTML = `<img src="./assets/plus_icon.svg"></img>`//"./assets/plus_icon.svg"
-                div.appendChild(button);
+            const animate = ()=>{
+                position -= speed;
+                if ( Math.abs(position) >= track.offsetWidth / 2) {
+                    position = 0;
+                };
+                track.style.transform = `translateX(${Math.round(position)}px)`;
+                requestAnimationFrame(animate);
+            }
 
-                const h2 = document.createElement('h2');
-                h2.innerText = faq.question;
-                div.appendChild(h2);
-
-                const pAnswer = document.createElement('p');
-                pAnswer.innerText = faq.answer;
-                pAnswer.className = "answer";
-
-                li.appendChild(div);
-                li.appendChild(pAnswer);
-
-                faqList.appendChild(li);
-
-                button.addEventListener('click', ()=>{
-                    pAnswer.classList.toggle("answer-show");
-                    
-                })
-            });
-            
-            const questions = document.querySelectorAll('.nosotros-section li div');
-            const lastQuestion = questions[questions.length - 1];
-            lastQuestion.classList.add("faq-downcorner");
-            
+            animate();
         })
+
     },
     'proyectos' : () =>{
         appElement.innerHTML = `<h1>Nuestro trabajo</h1>`
@@ -117,12 +79,12 @@ window.addEventListener("load", ()=>{
         document.body.classList.remove('no-scroll');
         let loading = document.querySelector('#loadig-screen');
         if (loading) {
-           loading.style.display = 'none';
-           
-           if ( document.querySelector('.carousel') ){ 
+            //loading screen
+            loading.style.display = 'none';
+            //start carousel bar
+            if ( document.querySelector('.carousel') ){ 
                 restartBar();
             }
-            
         }
     }, 1000);  
 })

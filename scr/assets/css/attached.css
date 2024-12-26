@@ -2,18 +2,28 @@ hr{
     margin: 0 8%;
 }
 
-
 /*Image HERO like*/
-#nostrosImg{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+.carousel-nostros{
     margin-bottom: 4rem;
+    margin-top: 0.5rem;
+    overflow: hidden;
 }
 
-#nostrosImg img{
-    width: 49%;
-    margin-top: 0.5rem;
+.carousel-nosotros-track{
+    position: relative;
+    display: inline-flex;
+    z-index: -100;
+    will-change: transform; 
+}
+
+.carousel-nosotros-track img{
+    flex-shrink: 0;
+    width: 50vw;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* NOSOTROS Secciones */
