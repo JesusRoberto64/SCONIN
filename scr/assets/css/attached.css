@@ -124,6 +124,81 @@ hr{
     text-decoration: none;
 }
 
+/* PANELES OBRAS Y TRABAJOS */
+
+#trabajos-top h1{
+    margin: 3rem 0 1rem 0;
+    text-align: center;
+}
+
+#trabajos-top > p{
+    margin: 0 25% 3rem 25%;
+    background-color: aqua;
+}
+
+#panel-top{
+    margin: 0 8%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.panel{
+    background-color: white;
+    text-decoration: none;
+    
+    box-shadow: 0px 4px 0px #c0c0c0;
+    border-radius: 15px;
+
+    overflow: hidden;
+    padding: 1rem;
+    flex: 1;
+
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease;;
+}
+
+.full-width{
+    flex-basis: 100%;
+    background-color: aquamarine;
+    margin-top: 1rem;
+}
+
+.panel:hover{
+    transform: translateY(-8px);
+    box-shadow: 0px 12px 3px #c0c0c0;
+}
+
+/* LIST OBRAS */
+#trabajos-list{
+    margin: 3rem 0;
+}
+
+#trabajos-list h1{
+    text-align: center;
+}
+
+#trabajos-list ul{
+    margin: 0 8%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+
+/* OBRAS faq */
+.nosotros-section.obras{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    margin: 4rem 25% 4rem 25%;
+}
+.nosotros-section.obras > h1{
+    background-color: aqua;
+    text-align: center;
+    margin-bottom: 3rem;
+}    
+
 @media (min-width: 576px) {
 
     /* NOSOTROS Secciones */
@@ -156,6 +231,11 @@ hr{
     
     .particpantes h2{
         font-size: medium;
+    }
+
+    /*PANELES OBRAS*/
+    .nosotros-section.obras{
+        display: block;
     }
 }
 

@@ -4,7 +4,7 @@ import carouselChangeImg from "./js/carouselSizeImg";
 import { setProgressBar, startFillBar, setTimer, restartBar } from "./js/progressBar";
 import { loadHTML } from "./js/loader";
 import { carouselConfig } from "./js/crouselUtils";
-import { initFaq } from "./js/faqs";
+import { initFaq, initObras } from "./js/faqs";
 
 // NVIGATION APP
 const router = new Navigo('/SCONIN', {hash: false, noMatchWarning: true});
@@ -50,7 +50,8 @@ router.on({
 
     },
     'proyectos' : () =>{
-        appElement.innerHTML = `<h1>Nuestro trabajo</h1>`
+        loadHTML('./views/trabajos.html', appElement)
+        .then(initObras)
     }
 }).resolve();
 

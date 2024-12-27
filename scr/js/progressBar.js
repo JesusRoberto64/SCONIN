@@ -22,7 +22,7 @@ const fillBar = ()=>{
 
 export const setProgressBar = ()=>{
     progressBar = document.querySelector('.slick-dots li.slick-active button');
-
+    if ( progressBar === null){return}
     $('.carousel').on('afterChange', (event, slick, currentSlide)=>{
         width = 0
         progressBar.style.width = width + "%"
