@@ -127,18 +127,18 @@ hr{
 /* PANELES OBRAS Y TRABAJOS */
 
 #trabajos-top h1{
-    margin: 3rem 0 1rem 0;
-    text-align: center;
+    margin: 3rem 0 1rem 8%;
+    text-align: left;
 }
 
 #trabajos-top > p{
-    margin: 0 25% 3rem 25%;
-    background-color: aqua;
+    margin: 0 8% 3rem 8%;
 }
 
 #panel-top{
     margin: 0 8%;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 1rem;
 }
@@ -152,15 +152,16 @@ hr{
 
     overflow: hidden;
     padding: 1rem;
-    flex: 1;
-
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease;;
+    /*
+    
+    */
+    height: 115px;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease;
 }
 
 .full-width{
-    flex-basis: 100%;
-    background-color: aquamarine;
-    margin-top: 1rem;
+    
+    margin-top: 0rem;
 }
 
 .panel:hover{
@@ -170,33 +171,30 @@ hr{
 
 /* LIST OBRAS */
 #trabajos-list{
-    margin: 3rem 0;
+    margin: 3rem 8%;
 }
 
 #trabajos-list h1{
-    text-align: center;
+    text-align: left;
 }
 
 #trabajos-list ul{
-    margin: 0 8%;
+    margin: 0 0;
     display: flex;
     list-style: none;
     justify-content: space-between;
     gap: 1rem;
     margin-bottom: 0.8rem;
+    flex-direction: column;
 }
-
 
 /* OBRAS faq */
 .nosotros-section.obras{
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    margin: 4rem 25% 4rem 25%;
+    margin: 4rem 8% 4rem 8%;
 }
 .nosotros-section.obras > h1{
-    background-color: aqua;
-    text-align: center;
-    margin-bottom: 3rem;
+    text-align: left;
+    margin-bottom: 1rem;
 }    
 
 @media (min-width: 576px) {
@@ -213,16 +211,13 @@ hr{
         margin-top: 0rem;
         padding-left: 0.2rem;
     }
+    
     /* FAQ */
-    
-    
     .nosotros-section li div{
         padding: 1.15rem;
         font-size: small;
     }
     
-    
-
     .nosotros-section li div h2{
         font-weight: 500;
     }
@@ -237,5 +232,58 @@ hr{
     .nosotros-section.obras{
         display: block;
     }
+
+    #panel-top{
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .panel{
+        height: 250px;
+        flex: 1;
+
+    }
+    .full-width{
+        height: 115px;
+        margin-top: 1rem;
+        flex-basis: 100%;
+    }
+
+    #trabajos-top h1{
+        margin: 3rem 0 1rem 0;
+        text-align: center;
+    }
+    
+    #trabajos-top > p{
+        margin: 0 25% 3rem 25%;
+    }
+
+    /* LIST OBRAS */
+    #trabajos-list{
+        margin: 3rem 0;
+    }
+
+    #trabajos-list h1{
+        text-align: center;
+    }
+
+    #trabajos-list ul{
+        margin: 0.8rem 8%;
+        padding: 0;
+        flex-direction: row;
+    }
+
+    /* OBRAS faq */
+    .nosotros-section.obras{
+        margin: 4rem 25% 4rem 25%;
+    }
+
+    /* OBRAS faq */
+
+    .nosotros-section.obras > h1{
+        text-align: center;
+        margin-bottom: 3rem;
+    }    
 }
 

@@ -29,13 +29,10 @@ const initiCards = ()=>{
         p.innerText = card.medium;
         div.appendChild(p);
 
-        let arrow = document.createElement("div");
-        div.appendChild(arrow);
-
         let imgArrow = document.createElement('img');
         imgArrow.src = arrSvg;
-        arrow.appendChild(imgArrow);
-
+        div.appendChild(imgArrow);
+        
         cardDiv.appendChild(cardElment);
     });
    
