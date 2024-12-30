@@ -55,6 +55,8 @@ header{
     align-items: center;
     text-align: center;
     justify-content: space-between;
+
+    padding: 0.0rem 0rem;
 }
 
 header img{
@@ -520,9 +522,8 @@ footer div img{
         display: none;
     }
 
-    header img{
-        padding: 0.65rem;
-        max-width: 160px;
+    header{
+        padding: 0.6rem 0rem;
     }
 
     header a{
