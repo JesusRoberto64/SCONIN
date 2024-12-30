@@ -124,14 +124,14 @@ hr{
     text-decoration: none;
 }
 
-/* PANELES OBRAS Y TRABAJOS */
+/* PANELES APOYO */
 
-#trabajos-top h1{
+#apoyo-top h1{
     margin: 3rem 0 1rem 8%;
     text-align: left;
 }
 
-#trabajos-top > p{
+#apoyo-top > p{
     margin: 0 8% 3rem 8%;
 }
 
@@ -170,15 +170,15 @@ hr{
 }
 
 /* LIST OBRAS */
-#trabajos-list{
+#apoyo-list{
     margin: 3rem 8%;
 }
 
-#trabajos-list h1{
+#apoyo-list h1{
     text-align: left;
 }
 
-#trabajos-list ul{
+#apoyo-list ul{
     margin: 0 0;
     display: flex;
     list-style: none;
@@ -189,10 +189,10 @@ hr{
 }
 
 /* OBRAS faq */
-.nosotros-section.obras{
+.nosotros-section.apoyo{
     margin: 4rem 8% 4rem 8%;
 }
-.nosotros-section.obras > h1{
+.nosotros-section.apoyo > h1{
     text-align: left;
     margin-bottom: 1rem;
 }    
@@ -228,11 +228,11 @@ hr{
         font-size: medium;
     }
 
-    /*PANELES OBRAS*/
-    .nosotros-section.obras{
+    /*PANELES APOYO*/
+    .nosotros-section.apoyo{
         display: block;
     }
-
+    /* APOYO */
     #panel-top{
         flex-direction: row;
         flex-wrap: wrap;
@@ -250,38 +250,38 @@ hr{
         flex-basis: 100%;
     }
 
-    #trabajos-top h1{
+    #apoyo-top h1{
         margin: 3rem 0 1rem 0;
         text-align: center;
     }
     
-    #trabajos-top > p{
+    #apoyo-top > p{
         margin: 0 25% 3rem 25%;
     }
 
     /* LIST OBRAS */
-    #trabajos-list{
+    #apoyo-list{
         margin: 3rem 0;
     }
 
-    #trabajos-list h1{
+    #apoyo-list h1{
         text-align: center;
     }
 
-    #trabajos-list ul{
+    #apoyo-list ul{
         margin: 0.8rem 8%;
         padding: 0;
         flex-direction: row;
     }
 
-    /* OBRAS faq */
-    .nosotros-section.obras{
+    /* APOYO faq */
+    .nosotros-section.apoyo{
         margin: 4rem 25% 4rem 25%;
     }
 
-    /* OBRAS faq */
+    /* APOYO faq */
 
-    .nosotros-section.obras > h1{
+    .nosotros-section.apoyo > h1{
         text-align: center;
         margin-bottom: 3rem;
     }    

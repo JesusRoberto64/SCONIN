@@ -49,8 +49,8 @@ router.on({
         })
 
     },
-    'proyectos' : () =>{
-        loadHTML('./views/trabajos.html', appElement)
+    'apoyo' : () =>{
+        loadHTML('./views/apoyo.html', appElement)
         .then(initObras)
     }
 }).resolve();
