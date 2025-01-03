@@ -105,6 +105,8 @@ hr{
     background-color: aliceblue;
 }
 
+
+
 /* PARTICIPANTES */
 .particpantes{
     display: flex;
@@ -151,16 +153,32 @@ hr{
     border-radius: 15px;
 
     overflow: hidden;
-    padding: 1rem;
-    /*
+    padding: 2rem;
     
-    */
     height: 115px;
     transition: transform 0.3s ease-out, box-shadow 0.3s ease;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+#patreon{
+    flex-direction: row;
+}
+
+#patreon img{
+    max-width: 5rem;
+}
+
+#kofi img{
+    width: 65%;
+    /*
+    */
 }
 
 .full-width{
-    
     margin-top: 0rem;
 }
 
@@ -232,6 +250,7 @@ hr{
     .nosotros-section.apoyo{
         display: block;
     }
+    
     /* APOYO */
     #panel-top{
         flex-direction: row;
@@ -242,8 +261,17 @@ hr{
     .panel{
         height: 250px;
         flex: 1;
-
     }
+
+    #patreon{
+        flex-direction: column;
+        gap: 1.5rem; 
+    }
+
+    #patreon img{
+        max-width: 10rem;
+    }
+
     .full-width{
         height: 115px;
         margin-top: 1rem;
