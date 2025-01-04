@@ -444,6 +444,10 @@ footer p{
     color: white;
 }
 
+footer a{
+    text-decoration: none;
+}
+
 footer div img{
     height: 16px;
     width: 16px;

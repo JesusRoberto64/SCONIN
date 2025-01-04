@@ -25,6 +25,13 @@ router.on({
             setTimer(carousel);
             startFillBar();
             
+            const goToTopLink = document.getElementById("goToTop");
+            if (goToTopLink){
+                goToTopLink.addEventListener("click", (event)=>{
+                    event.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                })
+            }
         });
     },
     'nosotros' : () =>{
