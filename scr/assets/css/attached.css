@@ -105,8 +105,6 @@ hr{
     background-color: aliceblue;
 }
 
-
-
 /* PARTICIPANTES */
 .particpantes{
     display: flex;
@@ -168,14 +166,16 @@ hr{
     flex-direction: row;
 }
 
-#patreon img{
-    max-width: 5rem;
+#patreon :nth-child(1){
+    max-width: 55px;
+}
+
+#patreon :nth-child(2){
+    max-width: 178px;
 }
 
 #kofi img{
     width: 65%;
-    /*
-    */
 }
 
 .full-width{
@@ -268,7 +268,11 @@ hr{
         gap: 1.5rem; 
     }
 
-    #patreon img{
+    #patreon :nth-child(1){
+        max-width: 10rem;
+    }
+    
+    #patreon :nth-child(2){
         max-width: 10rem;
     }
 
