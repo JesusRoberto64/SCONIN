@@ -22,8 +22,8 @@ const initList = (arr)=>{
         li.appendChild(pAnswer);
     
         list.appendChild(li);
-    
-        button.addEventListener('click', ()=>{
+        
+        div.addEventListener('click', () =>{
             pAnswer.classList.toggle("answer-show");
             if (pAnswer.classList.contains("answer-show")){
                 button.innerHTML = `<img src="./assets/minus_icon.svg"></img>`
