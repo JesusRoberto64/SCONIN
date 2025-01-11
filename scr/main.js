@@ -15,7 +15,7 @@ router.on({
         loadHTML('./views/main.html', appElement)
         .then( ()=>{    
             initiCards();
-            /*
+            
             $('.carousel').slick(carouselConfig);
             
             window.addEventListener('resize', carouselChangeImg);
@@ -33,7 +33,7 @@ router.on({
                     window.scrollTo({ top: 0, behavior: 'instant' });
                 })
             }
-            */
+            
         });
     },
     'nosotros' : () =>{
@@ -92,9 +92,14 @@ window.addEventListener("load", ()=>{
             //loading screen
             loading.style.display = 'none';
             //start carousel bar
+            
             if ( document.querySelector('.carousel') ){ 
                 //restartBar();
             }
+            else{
+                console.log("CHECK Query")
+            }
+                
             console.log("TEST")
         }
     }, 1000);  
