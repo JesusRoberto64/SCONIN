@@ -117,6 +117,7 @@ header > a{
     z-index: 10;
     text-align: right;
     
+    
     background-color: black;
     /* anim */
     
@@ -146,8 +147,16 @@ header > a{
 }
 
 #nav-menu li a{
+    /*
     color: #dadada;
+    */
+    color: #6f6f6f;
     text-decoration: none;
+    transition: all 0.3s;
+}
+
+#nav-menu li a:hover{
+    color: #FFFFFF;
 }
 
 /*Botón de Apoyo*/
@@ -435,12 +444,17 @@ footer{
    
     display: flex;
     justify-content: space-between;
+    /*
+    */
+    align-items: center;
+
 }
 
 footer p{
     padding: 0;
     margin: 0;
-    font-size: 0.70rem;
+    
+    font-size: 1.08rem;
     color: white;
 }
 
@@ -449,10 +463,11 @@ footer a{
 }
 
 footer div img{
-    height: 16px;
-    width: 16px;
+    height: 28px;
+    width: 28px;
     margin: 0 0.2rem;
 }
+
 
 /*Dinamic change above a tablet*/
 
@@ -513,6 +528,11 @@ footer div img{
          
     }
 
+    .mediumCard h1{
+        font-size: xx-large;
+        font-size: 3em;
+    }
+
     /* Dots carousel */
 
      .slick-dots{
@@ -527,29 +547,33 @@ footer div img{
     }
 
     header{
-        padding: 0.6rem 0rem;
+        padding: 1.5rem 0rem;
     }
 
-    header a{
-        margin-left: 5%;
+    header img{
+        max-width: 180px;
+    }
+
+    header > a{
         padding: 0;
+        margin-left: 2rem;
     }
 
     nav{
         height: 100%;
-        margin-right: 5%;
-        
+        margin-right: 2rem;
     }
 
     #nav-menu{
         position: static;
         width: 100%;
-        font-size: large;
+        font-size: x-large;
         background-color: transparent;
         padding: 0;
         max-height: none;
         border: 0;
         overflow: visible;
+        
     }
 
     #nav-menu button{
@@ -560,12 +584,22 @@ footer div img{
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100%;
     }
 
     #nav-menu li{
-        margin-right: 1rem;
         margin-bottom: 0;
+
+    }
+
+    #nav-menu ul > :nth-child(1){
+        margin-right: 3rem;
+        margin-bottom: 0;
+        
+    }
+
+    #nav-menu ul :nth-child(2){
+        margin-right: 3rem;
+        margin-bottom: 0; 
     }
 
     .hidden {
