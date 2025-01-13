@@ -309,19 +309,6 @@ header > a{
     padding: 0.5rem 1rem;
 }
 
-.mediumCard button{
-    background-color: #9d00ff;
-    border-radius: 50px;
-    border: 0;
-    padding: 0.65rem 2.5rem;
-    margin-top: 1rem;
-
-    color: white;
-    font-weight: bolder;
-    font-size: smaller;
-    font-family: "Urbanist", sans-serif;
-}
-
 #cards{
     display: flex;
     flex-direction: column;
@@ -468,6 +455,15 @@ footer div img{
     margin: 0 0.2rem;
 }
 
+.icon{
+    height: 28px;
+    width: 28px;
+    margin: 0 0.2rem;
+}
+
+.icon:hover path{
+    fill: #ffffff;
+}
 
 /*Dinamic change above a tablet*/
 

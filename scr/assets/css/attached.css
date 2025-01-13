@@ -61,7 +61,10 @@ hr{
 
 .answer{
     height: 0;
+    /*
     background-color: rgb(190, 239, 248);
+    */
+    background-color: rgb(233, 233, 233);
     color: transparent;
     overflow: hidden;
     padding: 0rem 0.85rem;
@@ -73,7 +76,9 @@ hr{
     height: auto;
     padding: 0.65rem 0.85rem;
     color: black;
-
+    /*
+    border-bottom: 0.05rem solid rgb(212, 212, 212);
+    */
 }
 
 .answer-hide{
@@ -187,10 +192,6 @@ hr{
 
 #kofi img{
     width: 65%;
-}
-
-.full-width{
-    margin-top: 0rem;
 }
 
 .panel:hover{

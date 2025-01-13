@@ -4,7 +4,7 @@ import carouselChangeImg from "./js/carouselSizeImg";
 import { setProgressBar, startFillBar, setTimer, restartBar } from "./js/progressBar";
 import { loadHTML } from "./js/loader";
 import { carouselConfig } from "./js/crouselUtils";
-import { initFaq, initObras } from "./js/faqs";
+import { initFaq } from "./js/faqs";
 
 // NVIGATION APP
 const router = new Navigo('/SCONIN', {hash: false, noMatchWarning: true});
@@ -60,7 +60,6 @@ router.on({
     },
     'apoyo' : () =>{
         loadHTML('./views/apoyo.html', appElement)
-        .then(initObras)
     }
 }).resolve();
 
@@ -94,13 +93,8 @@ window.addEventListener("load", ()=>{
             //start carousel bar
             
             if ( document.querySelector('.carousel') ){ 
-                //restartBar();
+                restartBar();
             }
-            else{
-                console.log("CHECK Query")
-            }
-                
-            console.log("TEST")
         }
     }, 1000);  
 })
