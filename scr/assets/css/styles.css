@@ -271,7 +271,9 @@ header > a{
     width: 2.5rem;
 
     background-color: #f5f7f7; 
+    /*
     border-radius: 50%;
+    */
 
     font-size: 20px;
     cursor: pointer;
@@ -282,7 +284,10 @@ header > a{
     z-index: 1;
     top: 50%;
     transform: translateY(-95%);
+    /*
     margin-left: 2%;
+    */
+    border-radius: 0 50% 50% 0;
 }
 .custom-prev img{
     transform: scaleX(-1);
@@ -291,10 +296,13 @@ header > a{
 
 .custom-next{
     position: absolute;
-    left: 98%;
+    
+    left: 100%;
+    
     transform: translateX(-100%);
     bottom: 50%;
     
+    border-radius: 50% 0 0 50%;
 }
 
 /* MEDIUM CARDS */
