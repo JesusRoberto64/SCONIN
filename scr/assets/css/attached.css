@@ -61,24 +61,19 @@ hr{
 
 .answer{
     height: 0;
-    /*
-    background-color: rgb(190, 239, 248);
-    */
     background-color: rgb(233, 233, 233);
     color: transparent;
     overflow: hidden;
-    padding: 0rem 0.85rem;
+    padding: 0 0.85rem 0 3rem;
     transition: all 0.3s ease;
 }
 
 .answer-show{
     overflow: visible;
     height: auto;
-    padding: 0.65rem 0.85rem;
+    padding: 0.65rem 0.85rem 0.65rem 3rem;
     color: black;
-    /*
-    border-bottom: 0.05rem solid rgb(212, 212, 212);
-    */
+    
 }
 
 .answer-hide{
@@ -86,20 +81,26 @@ hr{
     display: none;
 }
 
+#faq li{
+    border-bottom: 0.05rem solid rgb(212, 212, 212);
+}
+
 .nosotros-section li div{
     background-color: rgb(233, 233, 233);
+    /*
+    */
     display: flex;
     padding: 0.65rem;
     font-size: x-small;
     gap: 1rem;
-    border-bottom: 0.05rem solid rgb(212, 212, 212);
+    
 }
 
-.nosotros-section li div h2{
+.nosotros-section li div h2, p, span{
     font-weight: 600;
 }
 
-.nosotros-section div.faq-downcorner{
+.faq-downcorner{
     border-bottom: 0;
 }
 
@@ -107,6 +108,7 @@ hr{
     background-color: transparent;
     text-decoration: none;
     border: 0;
+    padding: 0;
 }
 
 #faq button:hover{
@@ -262,12 +264,23 @@ hr{
         padding: 1.15rem;
         font-size: small;
     }
-    
+
     .nosotros-section li div h2{
         font-weight: 500;
         font-size: x-large;
     }
     
+    .answer{
+        padding: 0 0.85rem 0 4rem;
+    }
+
+    .answer-show{
+        overflow: visible;
+        height: auto;
+        padding: 0.65rem 0.85rem 0.65rem 4rem;
+        color: black;
+       
+    }
     /* PARTICIPANTES */
     
     .particpantes h2{

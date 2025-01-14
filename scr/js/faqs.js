@@ -33,7 +33,7 @@ const initList = (arr)=>{
         });
     });
 
-    const questions = document.querySelectorAll('.nosotros-section li div');
+    const questions = document.querySelectorAll('#faq li');
     const lastQuestion = questions[questions.length - 1];
     lastQuestion.classList.add("faq-downcorner");
 }
