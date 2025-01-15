@@ -3,7 +3,7 @@ import initiCards from "./js/cards";
 import carouselChangeImg from "./js/carouselSizeImg";
 import { setProgressBar, startFillBar, setTimer, restartBar } from "./js/progressBar";
 import { loadHTML } from "./js/loader";
-import { carouselConfig } from "./js/crouselUtils";
+import { carouselConfig, simpleCarousel } from "./js/crouselUtils";
 import { initFaq } from "./js/faqs";
 
 // NVIGATION APP
@@ -39,27 +39,11 @@ router.on({
     'nosotros' : () =>{
         loadHTML('./views/nosotros.html', appElement)
         .then(initFaq)
-        .then(()=>{
-            //CAROUSEL trigger anim
-            const track = document.querySelector('.carousel-nosotros-track');
-            let position = 0;
-            const speed = 0.5;
-
-            const animate = ()=>{
-                position -= speed;
-                if ( Math.abs(position) >= track.offsetWidth / 2) {
-                    position = 0;
-                };
-                track.style.transform = `translateX(${Math.round(position)}px)`;
-                requestAnimationFrame(animate);
-            }
-
-            animate();
-        })
-
+        .then(simpleCarousel)
     },
     'apoyo' : () =>{
         loadHTML('./views/apoyo.html', appElement)
+        .then(simpleCarousel)
     }
 }).resolve();
 

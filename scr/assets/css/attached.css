@@ -136,7 +136,7 @@ hr{
 
 /* PANELES APOYO */
 #apoyo-top{
-    margin-bottom: 14rem;
+    margin-bottom: 8rem;
 }
 
 #apoyo-top h1{
@@ -173,6 +173,8 @@ hr{
     align-items: center;
     display: flex;
     justify-content: center;
+
+    width: 80%;
 
 }
 
@@ -331,6 +333,11 @@ hr{
     }
 
     /* APOYO LIST */
+    
+    #apoyo-top{
+        margin-bottom: 14rem;
+    }
+
     #apoyo-list{
         margin: 0rem 0 14rem 0;
     }
@@ -344,21 +351,12 @@ hr{
         margin: 0.8rem 8%;
         padding: 0;
         flex-direction: row;
+        flex-wrap: wrap;
     }
 
     #apoyo-list li{
         font-size: x-large;
     }
-
-    /* APOYO faq */
-    .nosotros-section.apoyo{
-        margin: 4rem 25% 4rem 25%;
-    }
-
-    /* APOYO faq */
-    .nosotros-section.apoyo > h1{
-        text-align: center;
-        margin-bottom: 3rem;
-    }    
+      
 }
 
