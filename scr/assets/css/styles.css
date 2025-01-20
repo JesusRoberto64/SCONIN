@@ -424,9 +424,6 @@ header > a{
 
 #apoyo a{
     text-decoration: none;
-    /*
-    border-left: 2px solid #cc7bfd;
-    */
     text-align: center;
     padding: 1rem 0.5rem;
 }

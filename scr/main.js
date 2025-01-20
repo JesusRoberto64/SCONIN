@@ -20,7 +20,7 @@ router.on({
             
             window.addEventListener('resize', carouselChangeImg);
             carouselChangeImg();
-
+            
             setProgressBar();
             const carousel = document.querySelector('.carousel');
             setTimer(carousel);
