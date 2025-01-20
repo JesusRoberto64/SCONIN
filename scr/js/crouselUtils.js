@@ -1,3 +1,12 @@
+/* This funtion is the configuration using slick lybary https://kenwheeler.github.io/slick/
+    to get it wrking just use in the main.js -> $('.carousel').slick(carouselConfig);
+    and for the use of the filling bar use
+    
+    setProgressBar();
+    const carousel = document.querySelector('.carousel');
+    setTimer(carousel);
+    startFillBar();
+*/
 export const carouselConfig = {
     centerMode: true,
     slidesToShow: 1,
