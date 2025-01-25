@@ -395,16 +395,19 @@ header > a{
 /* REDES  */
 #apoyo{
     margin: 2.5rem 0 5.5rem 0;
-    background-color: #edd9fa;
+    background-color: #d3d3d3;
     color: #6f6f6f;
     font-weight: 600;
     font-size: medium;
-    padding: 1rem 1rem 3rem 1rem;
+    padding: 5rem 3rem;
     margin-bottom: 0;
 }
 
 #apoyo h1{
     text-align: center;
+    color: gray;
+    margin: 0;
+    margin-bottom: 1.5rem;
 }
 
 
@@ -425,11 +428,32 @@ header > a{
 #apoyo a{
     text-decoration: none;
     text-align: center;
+    /*
     padding: 1rem 0.5rem;
+    */
 }
 
 #apoyo img{
     width: 50%;
+}
+
+#apoyo button{
+    text-decoration: none; /* Quitar subrayado */
+    border: 3px solid gray; /* Borde grueso de color gris */
+    color: gray; /* Tipografía del mismo color que el borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 100px; /* Bordes redondeados opcionales */
+    background-color: transparent; /* Fondo transparente */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    transition: all 0.3s ease; /* Transición suave para el hover */
+    font-family: "Urbanist", sans-serif;
+    font-weight: 800;
+    font-size: x-large;
+}
+
+#apoyo button:hover{
+    color: white; /* Cambiar tipografía a blanco */
+    background-color: gray; /* Rellenar fondo con el color del borde */
 }
 
 /* FOOTER */
@@ -513,8 +537,7 @@ footer div img{
     
     /* APOYO */
     #apoyo{
-        padding-left: 30%;
-        padding-right: 30%;
+        padding: 3rem;
     }
 
     /*FOOTER*/

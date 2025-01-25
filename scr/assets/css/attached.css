@@ -140,8 +140,8 @@ hr{
 }
 
 #apoyo-top h1{
-    margin: 3rem 0 1rem 8%;
-    text-align: left;
+    margin: 3rem 8% 1rem 8%;
+    text-align: center;
     color: black;
 }
 
@@ -205,8 +205,9 @@ hr{
 }
 
 #apoyo-list h1{
-    text-align: left;
+    text-align: center;
     color: black;
+    margin-bottom: 3rem;
 }
 
 #apoyo-list ul{
@@ -214,9 +215,9 @@ hr{
     display: flex;
     list-style: none;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-bottom: 0.8rem;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 #apoyo-list li{
@@ -292,6 +293,7 @@ hr{
     
     /* APOYO */
     #panel-top{
+        margin: 0 15%;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 1rem;
@@ -328,7 +330,7 @@ hr{
     }
     
     #apoyo-top > p{
-        margin: 0 25% 3rem 25%;
+        margin: 0 15% 3rem 15%;
         font-size: x-large;
     }
 
@@ -348,10 +350,8 @@ hr{
     }
 
     #apoyo-list ul{
-        margin: 0.8rem 8%;
+        margin: 0.8rem 15%;
         padding: 0;
-        flex-direction: row;
-        flex-wrap: wrap;
     }
 
     #apoyo-list li{
