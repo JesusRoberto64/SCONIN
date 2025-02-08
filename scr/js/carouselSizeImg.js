@@ -1,10 +1,10 @@
 const largeImgs = [
-    "./assets/ANUNCIO_1_ESCRITORIO.png",
+    "./assets/banner_principal_escritorio.png",
     "./assets/ANUNCIO_2_ESCRITORIO.png"
 ];
 
 const smallImgs = [
-    "./assets/ANUNCIO_1_MOVIL.png",
+    "./assets/banner_principal_movil.png",
     "./assets/ANUNCIO_2_MOVIL.png"
 ];
 
