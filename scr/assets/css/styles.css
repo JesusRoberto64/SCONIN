@@ -16,7 +16,7 @@ html{
 body{
     font-family: "Urbanist", sans-serif;
     margin: 0;
-    background-color: #f7f7f7;
+    background-color: var(--white-bg);
 }
 
 .no-scroll {
@@ -170,34 +170,6 @@ header > a{
     color: var(--white-hover);
 }
 
-/*Botón de Apoyo*/
-
-#apoyoBtn{
-    background-color: #9d00ff;
-    
-    text-decoration: none;
-    border-radius: 45px;
-    display: flex;
-    padding: 0.4rem 1rem;
-    justify-content: flex-end;
-    text-align: center;
-    align-items: center;
-    width: fit-content;
-    margin-left: auto;
-
-    transition: all 0.4s ease;
-}
-
-#apoyoBtn:hover{
-    transform:  scale(1.10);
-}
-
-#apoyoBtn img{
-    width: 1rem;
-    margin: 0;
-    padding: 0;
-    
-}
 
 
 /* LOADING SCREEN */
@@ -207,7 +179,7 @@ header > a{
     position: absolute;
     width:100vw ;
     height: 100vh;
-    background: #B133FF;
+    background: var(--white-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -452,8 +424,8 @@ header > a{
     cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
     transition: all 0.3s ease; /* Transición suave para el hover */
     font-family: "Urbanist", sans-serif;
-    font-weight: 800;
-    font-size: x-large;
+    font-weight: 600;
+    font-size: large;
 }
 
 #apoyo button:hover{
@@ -481,7 +453,7 @@ footer p{
     margin: 0;
     
     font-size: 1.08rem;
-    color: white;
+    color: var(--idle-link);
 }
 
 footer a{
