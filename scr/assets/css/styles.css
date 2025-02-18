@@ -1,3 +1,14 @@
+:root{
+    --black-nav: #000000;
+    --idle-link: #7a818d;
+    --text-subtitle: #a6abb3;
+    --card-shadow: #c9ccd1;
+    --ligth-gray: #dadce0;
+    --white-bg: #f7f7f7;
+    --white-hover: #ffffff;
+}
+
+
 html{
     scroll-behavior: smooth;
 }
@@ -15,7 +26,7 @@ body{
 }
 
 h1{
-    color: #9d00ff;
+    color: var(--text-subtitle);
 }
 
 h1, h2{
@@ -88,7 +99,7 @@ header > a{
 }
 
 #toogle-menu span{
-    background-color: #6f6f6f;
+    background-color: var(--idle-link);
     display: block;
     height: 3px;
     width: 25px;
@@ -150,13 +161,13 @@ header > a{
     /*
     color: #dadada;
     */
-    color: #6f6f6f;
+    color: var(--idle-link);
     text-decoration: none;
     transition: all 0.3s;
 }
 
 #nav-menu li a:hover{
-    color: #FFFFFF;
+    color: var(--white-hover);
 }
 
 /*Botón de Apoyo*/
@@ -313,8 +324,8 @@ header > a{
 }
 .mediumCard h1{
     margin-bottom: 1rem;
-    color: #6f6f6f;
-    padding: 0.5rem 1rem;
+    color: var(--idle-link);
+    padding: 0.5rem 2.5rem;
 }
 
 #cards{
@@ -327,7 +338,7 @@ header > a{
     background-color: white;
     text-decoration: none;
     
-    box-shadow: 0px 4px 0px #c0c0c0;
+    box-shadow: 0px 4px 0px var(--card-shadow);
     border-radius: 15px;
 
     margin: 0 auto 2rem auto;
@@ -337,6 +348,7 @@ header > a{
     
     max-width: 100%;
     text-decoration: none;
+    text-align: center;
     /*anim opacity*/
     opacity: 0;
     transition: opacity 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease;
@@ -359,25 +371,20 @@ header > a{
     font-weight: 800;
     font-size: large;
     padding: 0 0.75rem;
-    color: rgb(39, 39, 39);
+    color: var(--black-nav)
 }
 
 .cardDiv{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /*
-    */
     padding: 0 0.75rem;
     margin-bottom: 0.75rem;
+    text-align: center;
 }
 
 .cardDiv p{
-    padding: 0;
-    margin: 0;
     font-weight: 700;
     font-size: 0.8rem;
-    color: #6f6f6f;
+    color: var(--idle-link);
+    text-align: center;
 }
 
 .cardDiv a{
@@ -387,17 +394,14 @@ header > a{
     color: #9d00ff;
 }
 
-.cardDiv img{
-    margin: 0;
-    max-width: 23px;
-}
-
 /* REDES  */
 #apoyo{
     margin: 2.5rem 0 5.5rem 0;
+    /*
     background-color: #d3d3d3;
-    color: #6f6f6f;
     font-weight: 600;
+    color: var(--black-nav);
+    */
     font-size: medium;
     padding: 5rem 3rem;
     margin-bottom: 0;
@@ -405,7 +409,8 @@ header > a{
 
 #apoyo h1{
     text-align: center;
-    color: gray;
+    color: var(--black-nav);
+    font-weight: 600;
     margin: 0;
     margin-bottom: 1.5rem;
 }
@@ -439,11 +444,11 @@ header > a{
 
 #apoyo button{
     text-decoration: none; /* Quitar subrayado */
-    border: 3px solid gray; /* Borde grueso de color gris */
-    color: gray; /* Tipografía del mismo color que el borde */
+    border: 3px solid var(--black-nav); /* Borde grueso de color gris */
+    color: var(--white-hover); /* Tipografía del mismo color que el borde */
     padding: 10px 20px; /* Espaciado interno */
     border-radius: 100px; /* Bordes redondeados opcionales */
-    background-color: transparent; /* Fondo transparente */
+    background-color: var(--black-nav); /* Fondo transparente */
     cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
     transition: all 0.3s ease; /* Transición suave para el hover */
     font-family: "Urbanist", sans-serif;
@@ -452,8 +457,8 @@ header > a{
 }
 
 #apoyo button:hover{
-    color: white; /* Cambiar tipografía a blanco */
-    background-color: gray; /* Rellenar fondo con el color del borde */
+    color: var(--black-nav); /* Cambiar tipografía a blanco */
+    background-color: var(--white-hover); /* Rellenar fondo con el color del borde */
 }
 
 /* FOOTER */
@@ -559,7 +564,7 @@ footer div img{
 
     .mediumCard h1{
         font-size: xx-large;
-        font-size: 3em;
+        /*font-size: 3em;*/
     }
 
     /* Dots carousel */

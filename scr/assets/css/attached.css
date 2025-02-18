@@ -9,7 +9,7 @@ hr{
 
 .carousel-nostros{
     margin-bottom: 4rem;
-    margin-top: 0.5rem;
+    
     overflow: hidden;
 }
 
@@ -22,7 +22,7 @@ hr{
 
 .carousel-nosotros-track img{
     flex-shrink: 0;
-    width: 50vw;
+    width: 300vw;
 
     box-sizing: border-box;
     margin: 0;
@@ -234,6 +234,10 @@ hr{
 }    
 
 @media (min-width: 576px) {
+
+    .carousel-nosotros-track img{
+        width: 150vw;
+    }
 
     /* NOSOTROS Secciones */
     

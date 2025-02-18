@@ -15,7 +15,7 @@ const initList = (arr)=>{
         div.appendChild(h2);
 
         const pAnswer = document.createElement('p');
-        pAnswer.innerText = element.answer;
+        pAnswer.innerHTML = element.answer;
         pAnswer.className = "answer";
 
         li.appendChild(div);
