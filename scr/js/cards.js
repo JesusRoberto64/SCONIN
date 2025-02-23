@@ -12,18 +12,20 @@ const initiCards = ()=>{
         cardElment.href = card.url;
         cardElment.target = "_blank";
 
+        let imgDiv = document.createElement('div');
+        cardElment.appendChild(imgDiv);
+
         let img = document.createElement("img");
         img.src = card.img;
-
-        cardElment.appendChild(img);
-        
-        let h3 = document.createElement("h3"); 
-        h3.innerText = card.title;
-        cardElment.appendChild(h3);
+        imgDiv.appendChild(img);
         
         let div = document.createElement("div");
         div.className = "cardDiv";
         cardElment.appendChild(div);
+        
+        let h3 = document.createElement("h3"); 
+        h3.innerText = card.title;
+        div.appendChild(h3);
         
         let p = document.createElement("p");
         p.innerText = card.medium;
