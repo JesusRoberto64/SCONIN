@@ -101,7 +101,13 @@ hr{
     overflow: visible;
     height: auto;
     padding: 0.65rem 0.85rem 0.65rem 3rem;
-    color: black; 
+    
+    color: var(--black-bg); 
+}
+
+.answer-show a{
+    text-decoration: none;
+    color: var(--primary-blue);
 }
 
 .answer-hide{
@@ -165,7 +171,7 @@ hr{
 #apoyo-top h1{
     margin: 3rem 8% 1rem 8%;
     text-align: center;
-    color: black;
+    color: var(--black-bg);
 }
 
 #apoyo-top > p{
@@ -229,7 +235,7 @@ hr{
 
 #apoyo-list h1{
     text-align: center;
-    color: black;
+    color: var(--black-bg);
     margin-bottom: 3rem;
 }
 
@@ -303,8 +309,8 @@ hr{
     .answer-show{
         overflow: visible;
         height: auto;
-        padding: 0.65rem 0.85rem 0.65rem 4rem;
-        color: black;
+        padding: 0.65rem 0.85rem 2rem 4rem;
+        color: var(--black-bg);
        
     }
     /* PARTICIPANTES */
