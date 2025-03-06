@@ -29,10 +29,6 @@ body{
     width: 100%;
 }
 
-h1, h2{
-    font-weight: 800;
-}
-
 ul{
     margin: 0;
     padding: 0;
@@ -271,26 +267,9 @@ header > a{
     
 }
 
-.card div:first-of-type{
-    /*
-    max-width: 337px; 
-    position: relative;
-    height: 471px; 
-    overflow: hidden; 
-    */
-}
-
 .card div:first-of-type img{
     display: block;
     width: 100%;
-    /*
-    position: absolute;
-    transform: translate(-60%, 0%);
-    top: 50%;
-    left: 50%;
-    max-width: 100%;
-    max-height: 100%;
-    */
 }
 
 .card h3{
@@ -323,11 +302,12 @@ header > a{
 }
 
 #apoyo h1{
+    
     text-align: center;
     color: var(--black-bg);
     font-weight: 600;
-    margin: 0;
-    margin-bottom: 1.5rem;
+    margin-block: 0 1.5rem;
+    font-size: 1.5rem;
 }
 
 

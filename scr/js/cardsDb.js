@@ -2,20 +2,20 @@ const cardsDb = [
     
     {
         title: "Jairo: El Pirata Callejero",
-        medium: "MINI COMIC IMPRESO",
-        img: "./assets/card_Eliab_06.png",
+        medium: "MINI CÓMIC IMPRESO",
+        img: "./assets/CUADRADO_JAIRO.png",
         url: "https://www.google.com/"
     },
     {
-        title: "Protector",
-        medium: "MINI JUEGO · 2024",
-        img: "./assets/card_Eliab_04.jpg",
+        title: "LCD: Protector",
+        medium: "MINI JUEGO · 2023",
+        img: "./assets/CUADRADO_PROTECTOR.png",
         url: "https://sconin.itch.io/protector"
     },
     {
-        title: "Eliab y el Círculo del Juego",
+        title: "El Micrbusero 2",
         medium: "SERIE DE WEB CÓMIC · 2022",
-        img: "./assets/card_Eliab_06.png",
+        img: "./assets/CUADRADO_MCRBS.png",
         url: "https://www.webtoons.com/es/canvas/el-microbusero-2/la-revelaci%C3%B3n/viewer?title_no=742802&episode_no=1"
     },
     

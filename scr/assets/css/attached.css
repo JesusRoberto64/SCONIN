@@ -54,7 +54,7 @@ hr{
 
 /*CONTACTO*/
 #contacto a{
-    color: #6376ad;
+    color: var(--primary-blue);
 }
 
 /* FAQ */
@@ -303,13 +303,13 @@ hr{
     }
     
     .answer{
-        padding: 0 0.85rem 0 4rem;
+        padding: 0 4rem 0 4rem;
     }
 
     .answer-show{
         overflow: visible;
         height: auto;
-        padding: 0.65rem 0.85rem 2rem 4rem;
+        padding: 0.65rem 4rem 2rem 4rem;
         color: var(--black-bg);
        
     }
