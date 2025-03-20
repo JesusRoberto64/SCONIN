@@ -9,7 +9,7 @@ const faqs = [
     },
     { 
         question: "¿Puedo colaborar con ustedes?",
-        answer: `<p>Sí.<br><br>Eso sí, recuerda que somos personas con vidas independientes y nos gusta invertir nuestro tiempo en proyectos que nos parezcan valiosas. Considéralo antes de escribirnos.</p>`
+        answer: `<p>Sí.<br><br>Solo recuerda que somos personas con vidas independientes y nos gusta invertir nuestro tiempo en proyectos que nos parezcan valiosas. Considéralo antes de escribirnos.</p>`
     },
     { 
         question: "¿Qué recomiendan para crear obras?",
