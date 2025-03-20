@@ -23,7 +23,7 @@ const faqs = [
     },
     {
         question: "¿Ofrecen servicios de creación artística?",
-        answer: `<p>Claro. tenemos experiencia haciendo historias, personajes, cómic, animación y videojuegos.<br><br>Si necesitas apoyo en cualquiera de estas áreas, ya sea desde una asesoría hasta la creación de tu proyecto, contáctanos para platicar sobre lo que tienes en mente.</p>`
+        answer: `<p>Claro. Tenemos experiencia haciendo historias, personajes, cómic, animación y videojuegos.<br><br>Si necesitas apoyo en cualquiera de estas áreas, ya sea desde una asesoría hasta la creación de tu proyecto, contáctanos para platicar sobre lo que tienes en mente.</p>`
     }, 
 ];
 
