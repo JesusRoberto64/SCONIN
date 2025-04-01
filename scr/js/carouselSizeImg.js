@@ -1,27 +1,35 @@
 const largeImgs = [
-    "./assets/banner_principal_escritorio.png",
+    "./assets/banner_escritorio_1.png",
     "./assets/ANUNCIO_2_ESCRITORIO.png"
 ];
 
 const smallImgs = [
-    "./assets/banner_principal_movil.png",
+    "./assets/banner_movil_1.png",
     "./assets/ANUNCIO_2_MOVIL.png"
 ];
 
 const carouselChangeImg = ()=>{
-    const imgs = document.querySelectorAll('.banner');
+    // The number of elements in the arrays above are the overflow images that wil slide in the carousel
+    
+    const banner = document.querySelectorAll('.banner');
     const width = window.innerWidth;
 
     if (width <= 576){
-       for (let i = 0; i < imgs.length; i++) {
-            const element = imgs[i];
+       
+        /*
+        for (let i = 0; i < banner.length; i++) {
+            const element = banner[i];
             element.src = smallImgs[i%smallImgs.length];
         }
+        */
     }else{
-        for (let i = 0; i < imgs.length; i++) {
-            const element = imgs[i];
+        
+        /*
+        for (let i = 0; i < banner.length; i++) {
+            const element = banner[i];
             element.src = largeImgs[i%largeImgs.length];
-        }  
+        }
+         */ 
     }
 }
 

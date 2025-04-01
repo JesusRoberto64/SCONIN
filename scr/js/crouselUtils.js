@@ -1,5 +1,5 @@
 /* This funtion is the configuration using slick lybary https://kenwheeler.github.io/slick/
-    to get it wrking just use in the main.js -> $('.carousel').slick(carouselConfig);
+    to get it working just use in the main.js -> $('.carousel').slick(carouselConfig);
     and for the use of the filling bar use
     
     setProgressBar();
