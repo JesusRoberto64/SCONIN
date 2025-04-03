@@ -185,33 +185,29 @@ header > a{
 
 /* SLIDER CAROUSEL*/
 
-.carousel{
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
+.banner-container{
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }
 
-.carousel div img{
+#banner {
+    width: 100%;
+    height: auto;
     display: block;
-    width: 100vw;
-    margin: auto;
-
 }
 
-.carousel > h1{
-    margin: 0;
+.banner-container h1{
     position: absolute;
-    left: 50%; /* Centrado horizontal */
-    /*
-    bottom: 50%;
-    */
     top: 50%;
+    /*
+    left: 50%;
+    transform: translate(-50%, -50%);
+    */
+    text-align: center;
+    width: 100%;
+    margin: 0;
     
-    transform: translate(-50%, -50%); /* Ajuste fino */
-
-    width: max-content; /* Ancho según contenido */
-    height: max-content;
-    text-align: left; /* Alineación interna a la izquierda */       
 }
 
 /* MEDIUM CARDS */
@@ -359,7 +355,7 @@ header > a{
 /* FOOTER */
 
 footer{
-    background-color: var(--terciary-gray);
+    background-color: var(--black-bg);
     text-align: center;
     padding: 1.35rem 1.5rem;
    
