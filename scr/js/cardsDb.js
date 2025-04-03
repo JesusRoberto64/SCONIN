@@ -13,7 +13,7 @@ const cardsDb = [
         url: "https://sconin.itch.io/protector"
     },
     {
-        title: "El Micrbusero 2",
+        title: "El Microbusero 2",
         medium: "SERIE DE WEB CÓMIC · 2022",
         img: "./assets/cuadro_microbusero.png",
         url: "https://www.webtoons.com/es/canvas/el-microbusero-2/la-revelaci%C3%B3n/viewer?title_no=742802&episode_no=1"

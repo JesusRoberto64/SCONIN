@@ -65,7 +65,7 @@ hr{
     overflow: hidden;
 }
 
-#faq li{
+#faq >li{
     border-bottom: 0.05rem solid var(--secondary-gray);
     background-color: var(--terciary-gray);
 }
@@ -113,6 +113,10 @@ hr{
 .answer-hide{
     height: 0;
     display: none;
+}
+
+.answer ul{
+    list-style: circle;
 }
 
 .nosotros-section li div{
