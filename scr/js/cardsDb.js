@@ -2,7 +2,7 @@ const cardsDb = [
     
     {
         title: "Jairo: El Pirata Callejero",
-        medium: "MINI CÓMIC IMPRESO",
+        medium: "MINI CÓMIC · PROXIMAMENTE",
         img: "./assets/cuadro_jairo.png",
         url: "https://www.google.com/"
     },

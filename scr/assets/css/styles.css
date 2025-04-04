@@ -200,13 +200,14 @@ header > a{
 .banner-container h1{
     position: absolute;
     top: 50%;
-    /*
     left: 50%;
     transform: translate(-50%, -50%);
+    /*
     */
     text-align: center;
     width: 100%;
     margin: 0;
+    font-size: x-large;
     
 }
 
@@ -398,8 +399,8 @@ footer div img{
 /*Dinamic change above a tablet*/
 
 @media (min-width: 768px) {
-    #hero h1{
-        font-size: xx-large;
+    .banner-container h1{
+        font-size: 50px;
     }
 
     /* Dots carousel */
