@@ -9,7 +9,6 @@ hr{
 /*Image HERO like*/
 
 .carousel-nostros{
-    margin-bottom: 4rem;
     
     overflow: hidden;
 }
@@ -24,10 +23,16 @@ hr{
 .carousel-nosotros-track img{
     flex-shrink: 0;
     width: 300vw;
-
+    /*
+    */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+/* NOSOTROS BLOCK*/
+#nosotros-block{
+    margin: 4rem 0rem;
 }
 
 /* NOSOTROS Secciones */
@@ -38,7 +43,7 @@ hr{
 }
 
 .nosotros-section{
-    margin: 1.5rem 8%;
+    margin: 2.5rem 8%;
 }
 
 .nosotros-section > :nth-child(1){
@@ -136,7 +141,7 @@ hr{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin: 0.8rem 0rem 2rem 0rem;
+    margin-top: 0.8rem;
 }
 
 .particpantes h2{
@@ -160,7 +165,7 @@ hr{
 
 .particpantes h2:hover{
     transform: translateY(-4px);
-    box-shadow: 0px 6px 3px #c0c0c0;
+    box-shadow: 0px 6px 3px var(--terciary-gray);
 }
 
 .particpantes a{
@@ -211,36 +216,23 @@ hr{
 
 }
 
-#patreon{
-    flex-direction: row;
-}
-
-#patreon :nth-child(1){
-    max-width: 55px;
-}
-
-#patreon :nth-child(2){
-    max-width: 178px;
-}
-
-#kofi img{
+#panel-top img{
     width: 65%;
 }
 
 .panel:hover{
     transform: translateY(-8px);
-    box-shadow: 0px 12px 3px #c0c0c0;
+    box-shadow: 0px 12px 3px var(--terciary-gray);
 }
 
 /* LIST OBRAS */
 #apoyo-list{
-    margin: 3rem 8%;
+    margin: 3rem 8% 8rem 8%;
 }
 
 #apoyo-list h1{
     text-align: center;
     color: var(--black-bg);
-    margin-bottom: 3rem;
 }
 
 #apoyo-list ul{
@@ -269,7 +261,14 @@ hr{
 @media (min-width: 576px) {
 
     .carousel-nosotros-track img{
+        display: block;
         width: 150vw;
+        margin-bottom: 0rem;
+    }
+
+    /* NOSOTROS block*/
+    #nosotros-block{
+        margin: 7rem 0rem;
     }
 
     /* NOSOTROS Secciones */
@@ -319,6 +318,17 @@ hr{
     }
     /* PARTICIPANTES */
     
+    .particpantes{
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .particpantes a{
+        flex: 1;
+        width: 100%
+    }
+
     .particpantes h2{
         font-size: x-large;
     }
@@ -337,21 +347,8 @@ hr{
     }
 
     .panel{
-        height: 250px;
+        height: 175px;
         flex: 1;
-    }
-
-    #patreon{
-        flex-direction: column;
-        gap: 1.5rem; 
-    }
-
-    #patreon :nth-child(1){
-        max-width: 10rem;
-    }
-    
-    #patreon :nth-child(2){
-        max-width: 10rem;
     }
 
     .full-width{

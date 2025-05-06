@@ -202,13 +202,10 @@ header > a{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /*
-    */
     text-align: center;
-    width: 100%;
+    width: 85%;
     margin: 0;
-    font-size: x-large;
-    
+    font-size: xx-large;
 }
 
 /* MEDIUM CARDS */
@@ -217,8 +214,9 @@ header > a{
     text-align: center;
     margin: 0rem 1.5rem 0 1.5rem;
 }
+
 .mediumCard h1{
-    margin: 3rem 0rem;
+    margin: 3rem 0rem 1.5rem 0rem;
     color: var(--primary-gray);
     padding: 0.5rem 0.0rem;
 }
@@ -294,7 +292,7 @@ header > a{
 /* REDES  */
 #apoyo{
     font-size: medium;
-    padding: 5rem 3rem;
+    padding: 7.5rem 3rem;
     margin-bottom: 0;
 }
 
@@ -400,7 +398,8 @@ footer div img{
 
 @media (min-width: 768px) {
     .banner-container h1{
-        font-size: 50px;
+        font-size: 45px;
+        width: 100%;
     }
 
     /* Dots carousel */
@@ -434,7 +433,7 @@ footer div img{
     
     /* APOYO */
     #apoyo{
-        padding: 8rem;
+        padding: 10rem 8rem;
     }
 
     /*FOOTER*/
@@ -455,7 +454,7 @@ footer div img{
     }
 
     .mediumCard h1{
-        margin: 4rem 0rem;
+        margin: 4rem 0rem 2rem 0rem;
         font-size: xx-large;
         /*font-size: 3em;*/
     }
@@ -549,5 +548,13 @@ footer div img{
     #apoyoBtn img{
         width: 1rem;
         margin: 0;
+    }
+}
+
+
+@media (min-width: 1400px){
+    .banner-container h1{
+        font-size: 55px;
+        width: 100%;
     }
 }
