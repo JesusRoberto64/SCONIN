@@ -4,7 +4,7 @@ import { viteStaticCopy } from "vite-plugin-static-copy";
 
 
 export default defineConfig({
-    base: '/SCONIN/',
+    base: '/',
     root: resolve(__dirname, "scr"),
     build: {
         outDir: "../dist",
